@@ -1,0 +1,24 @@
+#video-background{
+    width: auto;
+    height: auto;
+    min-width: 100%;
+    min-height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: -100;
+}
+.video-cation.text-center h1{
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    font-size: 40px;
+}
+.margintop-30{
+    margin-top: 30px;
+}
+.margintop-30 .btn.btn-warning{
+    color: #fff;
+}

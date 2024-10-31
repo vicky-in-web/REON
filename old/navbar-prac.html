@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar 測試</title>
+    <style>
+        #outline {
+            background-color: #eee;
+            width: 100%;
+            height: 80px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            position: sticky;
+            z-index: 1;
+            top: 0;
+        }
+
+        .secondlist,
+        .thirdlist {
+            background-color: #caaaaa;
+            color: #fff;
+            width: 100%;
+            height: 80px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            position: absolute;
+            top: -80px; /* 初始隱藏 */
+            transition: top 0.5s ease, opacity 0.5s ease;
+            opacity: 0;
+            pointer-events: none; /* 禁用不顯示時的點擊事件 */
+        }
+
+        .show {
+            top: 80px; /* 當顯示時下滑 */
+            opacity: 1;
+            pointer-events: auto; /* 重新啟用點擊事件 */
+        }
+
+        .thirdlist.show {
+            top: 160px; /* thirdlist 下滑到 secondlist 下方 */
+        }
+
+        .space {
+            height: 1000px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="outline">
+        <div class="item" data-target="list1">眼鏡</div>
+        <div class="item" data-target="list2">隱形眼鏡</div>
+    </div>
+
+    <div class="secondlist" id="list1">
+        <div class="item2" data-target="thirdlist1">方框</div>
+        <div class="item2" data-target="thirdlist2">圓框</div>
+    </div>
+
+    <div class="secondlist" id="list2">
+        <div class="item2" data-target="thirdlist3">台灣品牌</div>
+        <div class="item2" data-target="thirdlist4">韓國品牌</div>
+    </div>
+
+    <div class="thirdlist" id="thirdlist1">
+        <div class="item3">一號</div>
+        <div class="item3">二號</div>
+        <div class="item3">三號</div>
+    </div>
+
+    <div class="thirdlist" id="thirdlist2">
+        <div class="item3">一號</div>
+        <div class="item3">二號</div>
+        <div class="item3">三號</div>
+    </div>
+
+    <div class="thirdlist" id="thirdlist3">
+        <div class="item3">一號</div>
+        <div class="item3">二號</div>
+        <div class="item3">三號</div>
+    </div>
+
+    <div class="thirdlist" id="thirdlist4">
+        <div class="item3">一號</div>
+        <div class="item3">二號</div>
+        <div class="item3">三號</div>
+    </div>
+
+    <div class="space"></div>
+
+    <script>
+        const items = document.querySelectorAll('.item');
+        const secondLists = document.querySelectorAll('.secondlist');
+        const item2s = document.querySelectorAll('.item2');
+        const thirdLists = document.querySelectorAll('.thirdlist');
+        let hoverTimeout;
+
+        // 第一層 (item) hover 顯示對應的 secondlist
+        items.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                clearTimeout(hoverTimeout);
+
+                // 隱藏所有 secondlist 和 thirdlist
+                secondLists.forEach(list => list.classList.remove('show'));
+                thirdLists.forEach(list => list.classList.remove('show'));
+
+                // 顯示對應的 secondlist
+                const targetId = item.getAttribute('data-target');
+                const targetList = document.getElementById(targetId);
+                targetList.classList.add('show');
+            });
+
+            item.addEventListener('mouseleave', () => {
+                hoverTimeout = setTimeout(() => {
+                    const targetId = item.getAttribute('data-target');
+                    const targetList = document.getElementById(targetId);
+                    targetList.classList.remove('show');
+                }, 300);
+            });
+        });
+
+        // 第二層 (item2) hover 顯示對應的 thirdlist
+        item2s.forEach(item2 => {
+            item2.addEventListener('mouseenter', () => {
+                clearTimeout(hoverTimeout);
+
+                // 隱藏所有 thirdlist
+                thirdLists.forEach(list => list.classList.remove('show'));
+
+                // 顯示對應的 thirdlist
+                const targetId = item2.getAttribute('data-target');
+                const targetList = document.getElementById(targetId);
+                targetList.classList.add('show');
+            });
+
+            item2.addEventListener('mouseleave', () => {
+                hoverTimeout = setTimeout(() => {
+                    const targetId = item2.getAttribute('data-target');
+                    const targetList = document.getElementById(targetId);
+                    targetList.classList.remove('show');
+                }, 300);
+            });
+        });
+
+        // 修改 secondlist 的 mouseleave 事件
+        secondLists.forEach(list => {
+            list.addEventListener('mouseleave', () => {
+                hoverTimeout = setTimeout(() => {
+                    list.classList.remove('show');
+
+                    // 隱藏所有第三層列表
+                    thirdLists.forEach(thirdList => thirdList.classList.remove('show'));
+                }, 300);
+            });
+
+            list.addEventListener('mouseenter', () => {
+                clearTimeout(hoverTimeout);
+            });
+        });
+
+        // 修改 thirdlist 的 mouseleave 事件，使其與 secondlist 行為一致
+        thirdLists.forEach(list => {
+            list.addEventListener('mouseleave', () => {
+                hoverTimeout = setTimeout(() => {
+                    // 隱藏 thirdlist
+                    list.classList.remove('show');
+
+                    // 檢查對應的 secondlist
+                    const secondListId = [...item2s].find(item2 => item2.getAttribute('data-target') === list.id).parentElement.id;
+                    const secondList = document.getElementById(secondListId);
+                    if (!secondList.matches(':hover')) {
+                        secondList.classList.remove('show');
+                    }
+                }, 300);
+            });
+
+            list.addEventListener('mouseenter', () => {
+                clearTimeout(hoverTimeout);
+            });
+        });
+    </script>
+</body>
+
+</html>
