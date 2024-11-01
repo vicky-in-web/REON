@@ -34,7 +34,7 @@ require_once("php_lib.php");
 </head>
 
 <body>
-    <?php require_once("navbar.php") ?>
+    <?php require_once("newnavbar.php") ?>
     <div id="outline">
         <div class="frame">
             <div class="logo"><a href="./main.php">REON</a></div>
