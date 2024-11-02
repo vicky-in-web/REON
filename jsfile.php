@@ -105,29 +105,56 @@
                     qty: qty,
                 },
                 success: function(data) {
-            if (data.c == "1") { // 修正判斷條件
-                alert(data.m);
-                window.location.reload();
-            } else {
-                alert(data.m);
-            }
-        },
+                    if (data.c == "1") { // 修正判斷條件
+                        alert(data.m);
+                        window.location.reload();
+                    } else {
+                        alert(data.m);
+                    }
+                },
                 error: function(data) {
                     alert("資料庫連線失敗");
                 }
             });
         }
 
-// cart_content單筆取消功能
-        function btn_confirmLink(message,url){
-            if(message==""||url==""){
+        // cart_content單筆取消功能
+        function btn_confirmLink(message, url) {
+            if (message == "" || url == "") {
                 return false;
             }
-            if(confirm(message)){
-                window.location=url;
+            if (confirm(message)) {
+                window.location = url;
             }
             return false;
         }
 
-
+        // 修改商品數量
+        $("input").change(function() {
+            var qty = $(this).val();
+            const cartid = $(this).attr("cartid");
+            if (qty <= 0 || qty >= 50) {
+                alert("商品數量需在1至50之間");
+                return false;
+            }
+            $.ajax({
+                url: 'change_qty.php',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    cartid: cartid,
+                    qty: qty,
+                },
+                success: function(data) {
+                    if (data.c == true) {
+                        window.location.reload();
+                    } else {
+                        alert(data.m);
+                    }
+                },
+                error: function(data) {
+                    alert("系統無法連上資料庫");
+                }
+            });
+        })
     </script>

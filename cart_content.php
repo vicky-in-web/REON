@@ -11,49 +11,48 @@
             $subtotal = 0;
             $fee = 100;
             ?>
-            <table class="table table-hover table-borderless">
-                <thead>
-                    <tr>
-                        <th scope="col" style="width: 5% ; text-align:center">編號</th>
-                        <th scope="col" style="width: 10%;">商品圖示</th>
-                        <th scope="col" style="width: 35%;">商品名稱</th>
-                        <th scope="col" style="width: 5%; text-align:center">單價</th>
-                        <th scope="col" style="width: 15%; text-align:center">數量</th>
-                        <th scope="col" style="width: 10%; text-align:center">金額</th>
-                        <th scope="col" style="width: 10%; text-align:center">下次再買</th>
-                        <th scope="col" style="width: 10%; text-align:center">加入收藏</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    while ($cart_data = $cart_rs->fetch()) {
-                        $lineTotal = $cart_data['p_price'] * $cart_data['qty'];
-                        $subtotal += $lineTotal;
-                    ?>
+            <form action="checkout.php" method="post" id="cartForm1" name="cartForm1">
+                <table class="table table-hover table-borderless">
+                    <thead>
                         <tr>
-                            <th scope="row" style="text-align:center;"><?php echo $cart_data['p_id'] ?></th>
-                            <td><img src="images/<?php echo $cart_data['img_file'] ?>" class="img-fluid"></td>
-                            <td><?php echo $cart_data['p_name'] ?></td>
-                            <td style="text-align:center;"><?php echo $cart_data['p_price'] ?></td>
-                            <td style="text-align:center;">
-                                <div style="display: flex;justify-content:center;">
-                                    <div class="input-group w-75">
-                                        <input type="type" class="form-control" value="<?php echo $cart_data['qty'] ?>" onkeypress="return isNumberKey(event)"
-                                            onchange="validateInput(this)" id="numberInput">
-                                        <button class="btn btn-outline-dark" type="button" onclick="increaseValue()">+</button>
-                                        <button class="btn btn-outline-dark" type="button" onclick="decreaseValue()">-</button>
-                                    </div>
-                                </div>
-                            </td>
-                            <td style="text-align:center;"><?php echo $lineTotal ?></td>
-                            <td style="text-align:center;"><button class="btn btn-reon-b" type="button" id="btn[]" name="btn[]" onclick="btn_confirmLink('確認移除本商品？','shopcart_del.php?mode=1&cartid=<?php echo $cart_data['cartid']; ?>')"><i class="fa-regular fa-trash-can"></i></button></td>
-                            <td style="text-align:center;"><button class="btn btn-reon-b"><i class="fa-regular fa-heart"></i></button></td>
+                            <th scope="col" style="width: 5% ; text-align:center">編號</th>
+                            <th scope="col" style="width: 10%;">商品圖示</th>
+                            <th scope="col" style="width: 35%;">商品名稱</th>
+                            <th scope="col" style="width: 5%; text-align:center">單價</th>
+                            <th scope="col" style="width: 15%; text-align:center">數量</th>
+                            <th scope="col" style="width: 10%; text-align:center">金額</th>
+                            <th scope="col" style="width: 10%; text-align:center">下次再買</th>
+                            <th scope="col" style="width: 10%; text-align:center">加入收藏</th>
                         </tr>
-                    <?php
-                    }
-                    ?>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <?php
+                        while ($cart_data = $cart_rs->fetch()) {
+                            $lineTotal = $cart_data['p_price'] * $cart_data['qty'];
+                            $subtotal += $lineTotal;
+                        ?>
+                            <tr>
+                                <th scope="row" style="text-align:center;"><?php echo $cart_data['p_id'] ?></th>
+                                <td><img src="images/<?php echo $cart_data['img_file'] ?>" class="img-fluid"></td>
+                                <td><?php echo $cart_data['p_name'] ?></td>
+                                <td style="text-align:center;"><?php echo $cart_data['p_price'] ?></td>
+                                <td style="text-align:center;">
+                                    <div style="display: flex;justify-content:center;">
+                                        <div class="input-group w-75">
+                                            <input id="qty[]" name="qty[]" cartid="<?php echo $cart_data['cartid'];?>" type="number" class="form-control" value="<?php echo $cart_data['qty'] ?>" required min="1" max="50">
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="text-align:center;"><?php echo $lineTotal ?></td>
+                                <td style="text-align:center;"><button class="btn btn-reon-b" type="button" id="btn[]" name="btn[]" onclick="btn_confirmLink('確認移除本商品？','shopcart_del.php?mode=1&cartid=<?php echo $cart_data['cartid']; ?>')"><i class="fa-regular fa-trash-can"></i></button></td>
+                                <td style="text-align:center;"><button class="btn btn-reon-b"><i class="fa-regular fa-heart"></i></button></td>
+                            </tr>
+                        <?php
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </form>
             <br>
             <br>
             <br>
