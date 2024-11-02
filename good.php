@@ -37,6 +37,7 @@ require_once("php_lib.php");
     <?php require_once("gotop.php") ?>
     <?php require_once("footer.php") ?>
     <?php require_once("jsfile.php") ?>
+    <?php require_once("product_count.php") ?>
 
 
 </body>

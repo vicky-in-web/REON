@@ -1,11 +1,23 @@
 <!-- 資料庫連線 -->
 <?php
 require_once('Connections/dbset.php');
-
 //如果session沒有自動啟動，則手動命令session功能
 (!isset($_SESSION)) ? session_start() : "";
-
 require_once("php_lib.php");
+if (isset($_GET['sPath'])) {
+    $sPath = $_GET['sPath'] . ".php";
+} else {
+    $sPath = "main.php";
+}
+// 確認有無登入
+if (isset($_SESSION['login'])) {
+    header(sprintf("location:%s", $sPath));
+}
+// session_start();
+// if (isset($_SESSION['login'])) {
+//     session_unset(); // 清除所有 session 資料
+//     session_destroy(); // 停止 session
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,37 +25,25 @@ require_once("php_lib.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REON里光眼鏡</title>
-    <link href="plugin/bootstrap-5.3.3-dist/css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="plugin/fontawesome-free-6.6.0-web/css/all.css">
-    <link rel="stylesheet" href="reon_style.css">
-    <style>
-        #outline {
-            overflow: hidden;
-            width: 100%;
-            height: 800px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-image: url(./images/login_bg-2-1.png);
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-    </style>
-
+    <?php require_once("headfile.php") ?>
 </head>
 
 <body>
     <?php require_once("newnavbar.php") ?>
     <div id="outline">
         <div class="frame">
-            <div class="logo"><a href="./main.php">REON</a></div>
-            <div class="title">會員登入 Log In</div>
-            <div class="enterBox">電子信箱</div>
-            <input type="text" class="enterInput" placeholder="E-mail">
-            <div class="enterBox" class="enterInput">密碼</div>
-            <input type="text" class="enterInput" placeholder="password">
-            <button class="btn-login">登入</button>
+            <form action="" method="POST" class="form-signin" id="form1">
+                <div class="logo">REON</div>
+                <div class="title">會員登入 Log In</div>
+                <div class="enterBox">電子信箱</div>
+                <input type="email" class="enterInput" placeholder="E-mail" id="inputAccount" name="inputAccount" required>
+                <div class="enterBox" class="enterInput">密碼</div>
+                <input type="password" class="enterInput" placeholder="password" id="inputPassword" name="inputPassword" required>
+                <button type="submit" class="btn-login">登 入</button>
+                <br>
+                <div class="forget"><a href="#">忘記密碼</a></div>
+                <div class="forget"><a href="register.php">還不是會員</a></div>
+            </form>
         </div>
     </div>
 

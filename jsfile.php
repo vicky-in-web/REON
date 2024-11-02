@@ -129,32 +129,37 @@
             return false;
         }
 
-        // 修改商品數量
-        $("input").change(function() {
-            var qty = $(this).val();
-            const cartid = $(this).attr("cartid");
-            if (qty <= 0 || qty >= 50) {
-                alert("商品數量需在1至50之間");
-                return false;
-            }
-            $.ajax({
-                url: 'change_qty.php',
-                type: 'post',
-                dataType: 'json',
-                data: {
-                    cartid: cartid,
-                    qty: qty,
-                },
-                success: function(data) {
-                    if (data.c == true) {
-                        window.location.reload();
-                    } else {
-                        alert(data.m);
+
+
+        // 會員登入功能
+        $(function() {
+            $("#form1").submit(function() {
+                const inputAccount = $("#inputAccount").val();
+                const inputPassword = MD5($("#inputPassword").val());
+                $("#loading").show();
+                $.ajax({
+                    url: 'auth_user.php',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        inputAccount: inputAccount,
+                        inputPassword: inputPassword,
+                    },
+                    success: function(date) {
+                        if (data.c == true) {
+                            alert(data.m);
+                            window.location.href = "<?php echo $sPath; ?>"
+                        } else {
+                            alert(data.m);
+                        }
+                    },
+                    error: function(data) {
+                        alert("系統目前無法連接到後台資料庫");
                     }
-                },
-                error: function(data) {
-                    alert("系統無法連上資料庫");
-                }
+                });
             });
-        })
+        });
+
+
+
     </script>
