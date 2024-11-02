@@ -96,10 +96,10 @@
             $cart_rs = $link->query($SQLstring);
             $subtotal = 0;
             ?>
-            <table id="cart_table">
-                <?php
-                if ($cart_rs->rowCount() > 0) {  // 確認購物車是否有商品
-                ?>
+            <?php
+            if ($cart_rs->rowCount() > 0) {  // 確認購物車是否有商品
+            ?>
+                <table id="cart_table">
                     <tr style="margin-bottom: 5px;">
                         <td style="width: 60%;">名稱</td>
                         <td style="width: 20%;text-align:center;">數量</td>
@@ -110,7 +110,7 @@
                         $lineTotal = $cartList['p_price'] * $cartList['qty'];
                         $subtotal += $lineTotal;
                     ?>
-                        <tr class="cart_tr" >
+                        <tr class="cart_tr">
                             <td class="cart_td"><?php echo htmlspecialchars($cartList['p_name']); ?></td>
                             <td style="width: 20%;text-align:center" class="cart_td"><?php echo htmlspecialchars($cartList['qty']); ?></td>
                             <td style="width: 20%;text-align:center" class="cart_td"><?php echo htmlspecialchars($lineTotal); ?></td>
@@ -122,15 +122,15 @@
                         <td>小計</td>
                         <td colspan="2" style="text-align:right;font-weight:bolder;">$<?php echo htmlspecialchars($subtotal); ?></td>
                     </tr>
-            </table>
-            <br>
-            <p style="text-align:right;"> <a href="./cart.php"><button class="btn btn-reon-b-order">修改 / 結帳</button></a></p>
-        <?php
-                } else {
-                    echo "<tr><td colspan='3' >購物車空空如也！快下單吧！</td></tr></table>";
-                }
-        ?>
+                </table>
+                <br>
+                <p style="text-align:right;"> <a href="./cart.php"><button class="btn btn-reon-b-order">修改 / 結帳</button></a></p>
         </div>
+    <?php
+            } else {
+                echo "<br><p>購物車空空如也！快去下單吧！</p><br><p style='text-align:right;'> <a href='./cart.php'><button class='btn btn-reon-b-order'>修改 / 結帳</button></a></p>";
+            }
+    ?>
     </div>
 
 

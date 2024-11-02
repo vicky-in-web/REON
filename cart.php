@@ -34,13 +34,6 @@ require_once("php_lib.php");
 
     <section id="shopping_content">
         <div class="container-fluid">
-            <div class="col-12">
-                <nav id="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item">確認商品</li>
-                    </ol>
-                </nav>
-            </div>
             <div class="row">
                 <?php require_once("cart_content.php") ?>
             </div>

@@ -74,12 +74,12 @@
 
 
         // 防止粘貼非數字內容
-        input.addEventListener('paste', (e) => {
-            let pasteData = e.clipboardData.getData('text');
-            if (!(/^\d*$/.test(pasteData))) {
-                e.preventDefault();
-            }
-        });
+        // input.addEventListener('paste', (e) => {
+        //     let pasteData = e.clipboardData.getData('text');
+        //     if (!(/^\d*$/.test(pasteData))) {
+        //         e.preventDefault();
+        //     }
+        // });
 
 
         // 加入購物車
@@ -117,4 +117,17 @@
                 }
             });
         }
+
+// cart_content單筆取消功能
+        function btn_confirmLink(message,url){
+            if(message==""||url==""){
+                return false;
+            }
+            if(confirm(message)){
+                window.location=url;
+            }
+            return false;
+        }
+
+
     </script>

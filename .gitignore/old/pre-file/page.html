@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="project01/plugin/bootstrap-5.3.3-dist/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="project01/plugin/fontawesome-free-6.6.0-web/css/all.css">
+    <style>
+        .pagination {
+            justify-content: center;
+            margin: 20px 0;
+            border-radius: 0;
+        }
+        
+        .pagination .page-item .page-link {
+            background-color: #fff;
+            color: #ccc;
+            border: none;
+            padding: 10px 15px;
+            outline: none; /* 移除光暈 */
+        }
+        
+        .pagination .page-item.active .page-link {
+            background-color: #fff;
+            color: #ccc;
+            border-radius: 0;
+        }
+        
+        .pagination .page-item:first-child .page-link {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+        
+        .pagination .page-item:last-child .page-link {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        
+        .pagination .page-item .page-link:hover {
+            border-bottom: 2px solid #000;
+            color: #000;
+        }
+        
+        /* 可選：自定義焦點效果 */
+        .pagination .page-item .page-link:focus {
+            box-shadow: 0 0 0 0; /* 自定義光暈顏色和樣式 */
+            outline: none; /* 確保光暈不顯示 */
+            border-bottom: 2px solid #000;
+            color: #000;
+        }
+        </style>
+</head>
+
+<body>
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination pagination-sm justify-content-end">
+            <li class="page-item">
+                <a class="page-link"><i class="fa-solid fa-chevron-up fa-rotate-270"></i></a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#"><i class="fa-solid fa-chevron-up fa-rotate-90"></i></a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- boostrap -->
+    <script type="text/javascript" src="plugin/bootstrap-5.3.3-dist/js/bootstrap.bundle.js"></script>
+</body>
+
+</html>
