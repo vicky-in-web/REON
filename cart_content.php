@@ -1,7 +1,13 @@
 <?php if ($cart_rs->rowCount() != 0) { ?>
     <div class="col-9">
         <div class="page-title">
-            <div>確認商品</div>
+            <div class="location">
+                <div class="location_item"><a href="#">確認商品</a></div>
+                <div class="location_item">></div>
+                <div class="location_item">確認結帳資訊</div>
+                <div class="location_item">></div>
+                <div class="location_item">完成訂購</div>
+            </div>
             <div><button class="btn btn-reon-b" onclick="btn_confirmLink('確定清空購物車？','shopcart_del.php?mode=2')"><i class="fa-solid fa-eraser"></i> 清空購物車</button></div>
         </div>
         <div class="container">
@@ -39,7 +45,7 @@
                                 <td style="text-align:center;">
                                     <div style="display: flex;justify-content:center;">
                                         <div class="input-group w-75">
-                                            <input id="qty[]" name="qty[]" cartid="<?php echo $cart_data['cartid'];?>" type="number" class="form-control" value="<?php echo $cart_data['qty'] ?>" required min="1" max="50">
+                                            <input id="qty[]" name="qty[]" cartid="<?php echo $cart_data['cartid']; ?>" type="number" class="form-control" value="<?php echo $cart_data['qty'] ?>" required min="1" max="50">
                                         </div>
                                     </div>
                                 </td>
