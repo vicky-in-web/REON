@@ -50,7 +50,11 @@
                                     </div>
                                 </td>
                                 <td style="text-align:center;"><?php echo $lineTotal ?></td>
-                                <td style="text-align:center;"><button class="btn btn-reon-b" type="button" id="btn[]" name="btn[]" onclick="btn_confirmLink('確認移除本商品？','shopcart_del.php?mode=1&cartid=<?php echo $cart_data['cartid']; ?>')"><i class="fa-regular fa-trash-can"></i></button></td>
+                                <td style="text-align:center;">
+                                    <button class="btn btn-reon-b" type="button" id="btn[]" name="btn[]" onclick="btn_confirmLink('確認移除本商品？','shopcart_del.php?mode=1&cartid=<?php echo $cart_data['cartid']; ?>')">
+                                        <i class="fa-regular fa-trash-can"></i>
+                                    </button>
+                                </td>
                                 <td style="text-align:center;"><button class="btn btn-reon-b"><i class="fa-regular fa-heart"></i></button></td>
                             </tr>
                         <?php

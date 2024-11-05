@@ -119,15 +119,15 @@
         }
 
         // cart_content單筆取消功能
-        function btn_confirmLink(message, url) {
-            if (message == "" || url == "") {
-                return false;
-            }
-            if (confirm(message)) {
-                window.location = url;
-            }
-            return false;
-        }
+        // function btn_confirmLink(message, url) {
+        //     if (message == "" || url == "") {
+        //         return false;
+        //     }
+        //     if (confirm(message)) {
+        //         window.location = url;
+        //     }
+        //     return false;
+        // }
 
 
 
