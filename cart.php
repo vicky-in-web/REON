@@ -43,19 +43,9 @@ require_once("php_lib.php");
 
     <?php require_once("gotop.php") ?>
     <?php require_once("footer.php") ?>
-    <?php require_once("jsfile.php") ?>
     <?php require_once("product_count.php") ?>
-    <script>
-        function btn_confirmLink(message, url) {
-            if (message == "" || url == "") {
-                return false;
-            }
-            if (confirm(message)) {
-                window.location = url;
-            }
-            return false;
-        }
-    </script>
+    <?php require_once("jsfile.php") ?>
+
 
 </body>
 

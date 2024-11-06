@@ -34,6 +34,30 @@ require_once("php_lib.php");
 
 <body>
     <?php require_once("newnavbar.php") ?>
+    <?php
+    if (isset($_POST['formctl']) && $_POST['formctl'] == 'reg') {
+        $email = $_POST['r-email'];
+        $pw1 = md5($_POST['pw1']);
+        $cname = $_POST['r-cname'];
+        $tssn = $_POST['tssn'];
+        $birthday = $_POST['birthday'];
+        $mobile = $_POST['mobile'];
+        $address = $_POST['address'] == '' ? NULL : $_POST['address'];
+        $insertsql = "INSERT INTO member (email,pw1,cname,tssn,birthday) VALUES ('" . $email . "','" . $pw1 . "','" . $cname . "','" . $tssn . "','" . $birthday . "')";
+        $Result = $link->query($insertsql);
+        $emailid = $link->lastInsertId();    //讀取剛才新增的會員編號
+        if ($Result) {
+            //把資料寫進資料表
+            $insertsql = "INSERT INTO addbook (emailid, setdefault, cname, mobile, address) VALUES ('" . $emailid . "','1','" . $cname . "','" . $mobile . "','" . $address . "')";
+            $Result = $link->query($insertsql);
+            $_SESSION['login'] = true;   //註冊完直接登入
+            $_SESSION['emailid'] = $emailid;
+            $_SESSION['email'] = $email;
+            $_SESSION['cname'] = $cname;
+            echo "<script>alert('註冊完成');location.href='index.php';</script>";
+        }
+    }
+    ?>
     <form action="register.php" method="post" id="reg" name="reg">
         <div id="register_background">
             <div class="register_content">
@@ -42,7 +66,7 @@ require_once("php_lib.php");
                 </div>
                 <div class="r-content-body">
                     <div class="r-item">
-                        <span>電子信箱<span style="color: red;">(必填)</span></span><input id="email" name="email" type="email" placeholder="Email" class="register-enterInput">
+                        <span>電子信箱<span style="color: red;">(必填)</span></span><input id="r-email" name="r-email" type="email" placeholder="Email" class="register-enterInput">
                     </div>
                     <div class="r-item">
                         <span>密碼<span style="color: red;">(必填)</span></span><input id="pw1" name="pw1" type="password" placeholder="Password" class="register-enterInput">
@@ -51,7 +75,7 @@ require_once("php_lib.php");
                         <span>再次輸入密碼<span style="color: red;">(必填)</span></span><input id="pw2" name="pw2" type="password" placeholder="Password Again" class="register-enterInput">
                     </div>
                     <div class="r-item">
-                        <span>姓名<span style="color: red;">(必填)</span></span><input type="text" placeholder="Name" class="register-enterInput" id="cname" name="cname">
+                        <span>姓名<span style="color: red;">(必填)</span></span><input type="text" placeholder="Name" class="register-enterInput" id="r-cname" name="r-cname">
                     </div>
                     <div class="r-item">
                         <span>身分證字號<span style="color: red;">(必填)</span></span><input type="text" placeholder="ID" class="register-enterInput" id="tssn" name="tssn">
