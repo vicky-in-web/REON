@@ -30,11 +30,7 @@ require_once("php_lib.php");
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>REON里光眼鏡</title>
-    <link href="plugin/bootstrap-5.3.3-dist/css/bootstrap.css" rel="stylesheet">
-    <!-- <link href="project01/plugin/bootstrap-5.3.3-dis/css/bootstrap.css" rel="stylesheet"> -->
-    <link rel="stylesheet" href="plugin/fontawesome-free-6.6.0-web/css/all.css">
-    <link rel="stylesheet" href="reon_style.css">
+    <?php require_once("headfile.php") ?>
 
     <script>
         document.addEventListener('scroll', () => {

@@ -1,0 +1,125 @@
+/* 本月主打區 */
+.card-body {
+    font-size: 14px;
+}
+
+.little-title {
+    letter-spacing: 10px;
+    font-weight: bolder;
+    color: #dbb95a;
+    font-size: 1.5rem;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/* .suggestion-size{
+    padding: 50px 0px 150px 0px;
+  } */
+
+.card-body-height {
+    padding-bottom: 10px;
+}
+
+/* 特色服務區 */
+#service {
+    height: 15rem;
+    color: #949494;
+    letter-spacing: 0.2rem;
+    font-size: 0.85rem;
+    position: relative;
+    overflow: hidden;
+    transform: translateY(10%);
+    opacity: 0;
+    transition: transform 1s ease, opacity 1s ease;
+}
+
+#service.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+#suggest {
+    height: 30rem;
+    position: relative;
+    overflow: hidden;
+    transform: translateY(10%);
+    opacity: 0;
+    transition: transform 1s ease, opacity 1s ease;
+}
+
+#suggest.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+/* 最新消息區 */
+#thenews {
+    height: 30rem;
+    position: relative;
+    overflow: hidden;
+    transform: translateY(10%);
+    opacity: 0;
+    transition: transform 1s ease, opacity 1s ease;
+}
+
+#thenews.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.text-grey {
+    color: #949494;
+    text-decoration: none;
+    transform: translateX(0);
+    transition: color 0.1s ease 0s;
+    transition: transform 0.6s ease 0s;
+}
+
+.text-grey:hover {
+    color: #dbb95a;
+    transform: translateX(40%);
+    text-decoration: none;
+}
+
+.news-item-body {
+    border-width: 2px;
+    border-color: #dbb95a;
+    border-style: solid;
+    color: #000;
+    font-size: 0.8rem;
+    letter-spacing: 0.1rem;
+    margin-top: 1rem;
+    height: 6rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.news-item-img {
+    max-width: 100%;
+    /* 使圖片最大寬度為容器寬度 */
+    height: auto;
+    /* 根據寬度自動調整高度 */
+    display: block;
+}
+
+.news-item {
+    opacity: 1;
+    transition: all 0.6s ease 0s;
+}
+
+.news-item:hover {
+    opacity: 0.6;
+}

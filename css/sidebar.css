@@ -1,0 +1,41 @@
+/* SIDE BAR */
+#sidebar_background {
+  height: -moz-fit-content;
+  height: fit-content;
+  width: cover;
+  background-color: #eee;
+  color: #333;
+  border-radius: 15px;
+  margin: 20px 0px 20px 20px;
+  padding: 1rem;
+}
+
+#sidebar_background ul {
+  margin: 10px -1.5rem;
+  color: #000;
+  list-style-type: none;
+}
+
+#sidebar_background li {
+  margin: 5px 1.2rem;
+  list-style-type: none;
+}
+
+.level1 {
+  font-weight: bolder;
+}
+
+.level1:hover {
+  color: #999;
+  border-bottom: 1px dashed #999;
+}
+
+.level2:hover {
+  color: #999;
+  border-bottom: 1px dashed #999;
+}
+
+.level3:hover {
+  color: #999;
+  border-bottom: 1px dashed #999;
+}/*# sourceMappingURL=sidebar.css.map */

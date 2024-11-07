@@ -1,26 +1,24 @@
 /* html{
     scroll-behavior: smooth;
 } */
-a {
+/* a {
     text-decoration: none;
-    /* 去除下划线 */
     color: inherit;
-    /* 继承父元素的文字颜色 */
-}
+} */
 
 /* gotop標誌 */
-#gotopspace {
+/* #gotopspace {
     position: fixed;
     bottom: 50px;
-    right: 50px;
+    right: 50px; */
     /* opacity: 0.6; */
-    opacity: 0;
+    /* opacity: 0;
     transition: opacity 0.5s ease;
 }
 
-#gotopspace.visible {
+#gotopspace.visible { */
     /* display: block; */
-    opacity: 0.6;
+    /* opacity: 0.6;
 }
 
 #gotopspace:hover {
@@ -89,7 +87,7 @@ a {
 
 #gotop:active {
     transform: scale(0.96);
-}
+} */
 
 
 /* navbar欄 */
@@ -97,14 +95,14 @@ a {
     background-color: rgb(247, 247, 247);
 }
 
-.logo-pic {
+/* .logo-pic {
     height: 60px;
     position: relative;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
-}
+} */
 
 .controller {
     position: absolute;
