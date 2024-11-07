@@ -4,6 +4,7 @@ require_once('Connections/dbset.php');
 //如果session沒有自動啟動，則手動命令session功能
 (!isset($_SESSION)) ? session_start() : "";
 require_once("php_lib.php");
+
 if (isset($_GET['sPath'])) {
     $sPath = $_GET['sPath'] . ".php";
 } else {

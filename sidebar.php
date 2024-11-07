@@ -1,6 +1,6 @@
 <div class="col-2" id="sidebar">
     <div id="sidebar_background">
-        <ul>全部商品</ul>
+        <ul><a href="shopping.php">全部商品</a></ul>
         <hr>
         <ul>第一步：選外觀！</ul>
         <hr>
