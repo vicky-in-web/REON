@@ -4,72 +4,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>REON里光眼鏡</title>
+    <link rel="stylesheet" href="/css/all.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Archivo+Black&family=Noto+Serif+TC:wght@200..900&family=Righteous&display=swap');
+
         html {
             margin: 0;
             padding: 0;
+            font-family: "Righteous";
+
         }
 
-        html a {
+        .background {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* 
+        @mixin disaplay_row {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: center;
+            @content;
+        } */
+
+        /* .outline {
+            @include display_row {
+                font-size: 12rem;
+                color: #dbb95a;
+                background-color: #eee;
+            }
+        } */
+
+        .outline {
+            font-size: 12rem;
+            color: #dbb95a;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+        }
+
+        .outline a {
             text-decoration: none;
             color: inherit;
             display: block;
-        }
-
-        body {
             display: flex;
             flex-flow: row nowrap;
             justify-content: center;
             align-items: center;
-        }
-
-        .outline {
-            display: flex;
-            flex-flow: row nowrap;
-            justify-content: center;
-            align-items: center;
-            font-size: 12rem;
-            color: #dbb95a;
-            background-color: #eee;
+            position: absolute;
         }
 
         .RE {
             position: relative;
             right: 0;
-            transition: all 0.5s ease 0s;
-        }
-
-        .RE:hover {
-            right: 200px;
+            transition: all 1s ease 0s;
         }
 
         .ON {
             position: relative;
             left: 0;
-            transition: all 0.5s ease 0s;
+            transition: all 1s ease 0s;
         }
 
-        .ON:hover {
-            left: 200px;
+        .outline a:hover>.RE {
+            right: 120px;
         }
 
-        /* 可以指定接觸到ouline或之類的時候，讓RE和ON產生hover嗎 */
+        .outline a:hover>.ON {
+            left: 160px;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Archivo+Black&family=Noto+Sans+TC:wght@100..900&family=Noto+Serif+TC:wght@200..900&family=Righteous&display=swap');
+
+        .motto {
+            font-family: "Noto Sans Traditional Chinese";
+            color: #dbb95a;
+            font-weight: bolder;
+            opacity: 0;
+            transition: all 0.5s ease 0.1s;
+            z-index: -1;
+        }
+
+        .up {
+            padding-top: 10px;
+            text-align: center;
+        }
+
+        .down {
+            text-align: center;
+        }
+
+        .outline:hover+.motto {
+            opacity: 1;
+        }
+
+        .middleline {
+            width: 150px;
+            padding-top: 10px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #dbb95a;
+        }
     </style>
 </head>
 
 <body>
-    <div class="outline">
-        <div class="RE">RE</div>
-        <div class="ON">ON</div>
-    </div>
-    <a href="main.php">
-        <div class="motto">
-            <div class="up">尋找</div>
-            <hr>
-            <div class="down">你眼裡的光</div>
+    <!-- <a href="main.php"></a> -->
+    <div class="background">
+        <div class="outline">
+            <a href="main.php">
+                <div class="RE">RE</div>
+                <div class="ON">ON</div>
+            </a>
         </div>
-    </a>
+        <div class="motto">
+            <div class="up"> 尋 找 </div>
+            <div class="middleline"></div>
+            <div class="down"> 你 眼 裡 的 光 </div>
+        </div>
+    </div>
 
 </body>
 
