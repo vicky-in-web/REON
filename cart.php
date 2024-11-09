@@ -46,7 +46,47 @@ require_once("php_lib.php");
     <?php require_once("product_count.php") ?>
     <?php require_once("jsfile.php") ?>
 
+    <script>
+        //cart_content單筆取消功能
+        function btn_confirmLink(message, url) {
+            if (message == "" || url == "") {
+                return false;
+            }
+            if (confirm(message)) {
+                window.location = url;
+            }
+            return false;
+        }
 
+        // 變更數量
+        $("input").change(function() {
+            var qty = $(this).val();
+            const cartid = $(this).attr("cartid");
+            if (qty <= 0 || qty >= 50) {
+                alert("更改數量需大於0以上，以及小於50以下。");
+                return false;
+            }
+            $.ajax({
+                url: 'change_qty.php',
+                type: 'post',
+                data: {
+                    cartid: cartid,
+                    qty: qty,
+                },
+                success: function(data) {
+                    if (data.c == true) {
+                        //alert(data.m);
+                        window.location.reload();
+                    } else {
+                        alert(data.m)
+                    }
+                },
+                error: function(data) {
+                    alert("系統目前無法連線後台資料庫");
+                }
+            })
+        })
+    </script>
 </body>
 
 </html>

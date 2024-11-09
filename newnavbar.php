@@ -57,30 +57,41 @@
             ?>
         </ul>
         <div class="right-menu">
-            <a href="login.php"><i class="fa-regular fa-circle-user fa-lg"></i></a>
-            <a href="#"><i class="fa-regular fa-heart fa-lg"></i></a>
+            <?php
+            if (!isset($_SESSION['login'])) {
+            ?>
+                <a href="login.php">
+                <?php
+            } else {
+                ?>
+                    <a href="login-index.php">
+                    <?php
+                }
+                    ?>
+                    <i class="fa-regular fa-circle-user fa-lg"></i></a>
+                    <a href="#"><i class="fa-regular fa-heart fa-lg"></i></a>
 
-            <a href="#">
-                <i class="fa-solid fa-cart-shopping fa-lg position-relative" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                    <span class="position-absolute start-100 translate-middle badge rounded-pill text-bg-warning" style="font-size: 10px;top:-12px;">
-                        <?php
-                        $stmt = $link->prepare("SELECT SUM(qty) AS total_quantity FROM cart WHERE orderid IS NULL AND ip = :ip");
-                        $stmt->bindParam(':ip', $_SERVER['REMOTE_ADDR'], PDO::PARAM_STR);
-                        $stmt->execute();
-                        $total_quantity = $stmt->fetchColumn();
-                        ?>
-                        <?php
-                        echo htmlspecialchars($total_quantity, ENT_QUOTES, 'UTF-8');
-                        ?></span>
-                </i>
-            </a>
+                    <a href="#">
+                        <i class="fa-solid fa-cart-shopping fa-lg position-relative" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                            <span class="position-absolute start-100 translate-middle badge rounded-pill text-bg-warning" style="font-size: 10px;top:-12px;">
+                                <?php
+                                $stmt = $link->prepare("SELECT SUM(qty) AS total_quantity FROM cart WHERE orderid IS NULL AND ip = :ip");
+                                $stmt->bindParam(':ip', $_SERVER['REMOTE_ADDR'], PDO::PARAM_STR);
+                                $stmt->execute();
+                                $total_quantity = $stmt->fetchColumn();
+                                ?>
+                                <?php
+                                echo htmlspecialchars($total_quantity, ENT_QUOTES, 'UTF-8');
+                                ?></span>
+                        </i>
+                    </a>
 
-            <form action="shopping.php" method="get" id="search">
-                <div class="input-group input-group-sm mb-3" style="padding-top: 18px;">
-                    <input type="search" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="button-addon2" name="search_name" id="search_name" value="<?php echo (isset($_GET['search_name'])) ? $_GET['search_name'] : ''; ?>" required>
-                    <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i class="fa-solid fa-magnifying-glass"></i></button>
-                </div>
-            </form>
+                    <form action="shopping.php" method="get" id="search">
+                        <div class="input-group input-group-sm mb-3" style="padding-top: 18px;">
+                            <input type="search" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="button-addon2" name="search_name" id="search_name" value="<?php echo (isset($_GET['search_name'])) ? $_GET['search_name'] : ''; ?>" required>
+                            <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </div>
+                    </form>
 
         </div>
         </ul>
