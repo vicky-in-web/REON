@@ -60,6 +60,7 @@
 
 .location {
   display: flex;
+  align-items: center;
 }
 
 .location_item {

@@ -7,9 +7,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(./images/login_bg-2-1.png);
+  background-image: url("../images/login_bg-2-1.png");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 
 .frame {
@@ -94,32 +95,87 @@
 }
 
 /* login-index */
-.member-behavior {
-  height: 100%;
-  width: 100%;
+.login-index-container {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-  gap: 50px;
+  height: 400px;
+  width: 100%;
+  gap: 5%;
 }
 
-.member-item {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border: 5px solid #fff;
-  background-color: rgba(255, 255, 255, 0.6901960784);
-  font-size: 1.2rem;
+.login-item {
   display: flex;
+  flex-flow: row wrap;
   justify-content: center;
   align-items: center;
+  border: 2px solid #000;
+  border-radius: 10px;
+  width: 8rem;
+  height: 8rem;
   font-weight: bolder;
-  color: #000;
-  transition: all 0.2s ease 0s;
+  position: relative;
+  transition: all 0.4s ease 0s;
 }
-
-.member-item:hover {
-  background-color: rgba(121, 96, 28, 0.6901960784);
-  color: #ffffff;
+.login-item:nth-child(1)::after {
+  content: "MEMBER PROFILE";
+  opacity: 0.3;
+  font-size: 150%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffd667;
+  text-align: center;
+  line-height: 250%;
+  transition: all 0.4s ease 0s;
+}
+.login-item:nth-child(2)::after {
+  content: "ORDER LIST";
+  opacity: 0.3;
+  font-size: 150%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffd667;
+  text-align: center;
+  line-height: 250%;
+  transition: all 0.4s ease 0s;
+}
+.login-item:nth-child(3)::after {
+  content: "WISH LIST";
+  opacity: 0.3;
+  font-size: 150%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffd667;
+  text-align: center;
+  line-height: 250%;
+  transition: all 0.4s ease 0s;
+}
+.login-item:nth-child(4)::after {
+  content: "SPECIAL OFFER";
+  opacity: 0.3;
+  font-size: 150%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffd667;
+  text-align: center;
+  line-height: 250%;
+  transition: all 0.4s ease 0s;
+}
+.login-item:hover {
+  background-color: #a19060;
+  height: 70%;
+  color: #fff;
+}
+.login-item:hover::after {
+  line-height: 800%;
+  color: #000;
 }/*# sourceMappingURL=login-out.css.map */

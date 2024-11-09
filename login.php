@@ -8,17 +8,13 @@ require_once("php_lib.php");
 if (isset($_GET['sPath'])) {
     $sPath = $_GET['sPath'] . ".php";
 } else {
-    $sPath = "main.php";
+    $sPath = "login-index.php";
 }
 // 確認有無登入
 if (isset($_SESSION['login'])) {
     header(sprintf("location:%s", $sPath));
 }
-// session_start();
-// if (isset($_SESSION['login'])) {
-//     session_unset(); // 清除所有 session 資料
-//     session_destroy(); // 停止 session
-// }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,13 +23,14 @@ if (isset($_SESSION['login'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php require_once("headfile.php") ?>
+
 </head>
 
 <body>
     <?php require_once("newnavbar.php") ?>
     <div id="outline">
         <div class="frame">
-            <form action="" method="POST" class="form-signin" id="form1">
+            <form action="" method="POST" class="form-signin" id="forml">
                 <div class="logo">REON</div>
                 <div class="title">會員登入 Log In</div>
                 <div class="enterBox">電子信箱</div>
@@ -50,6 +47,36 @@ if (isset($_SESSION['login'])) {
 
     <?php require_once("footer.php") ?>
     <?php require_once("jsfile.php") ?>
+    <script src="commlib.js"></script>
+    <script>
+        // 會員登入功能
+        $(function() {
+            $("#forml").submit(function() {
+                const inputAccount = $("#inputAccount").val();
+                const inputPassword = MD5($("#inputPassword").val());
+                $.ajax({
+                    url: 'auth_user.php',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        inputAccount: inputAccount,
+                        inputPassword: inputPassword,
+                    },
+                    success: function(data) {
+                        if (data.c == true) {
+                            alert(data.m);
+                            window.location.href = "<?php echo $sPath; ?>"
+                        } else {
+                            alert(data.m);
+                        }
+                    },
+                    error: function(data) {
+                        alert("系統目前無法連接到後台資料庫");
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

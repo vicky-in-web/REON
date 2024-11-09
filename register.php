@@ -59,7 +59,7 @@ require_once("php_lib.php");
     }
     ?>
     <form action="register.php" method="post" id="reg" name="reg">
-        <div id="register_background">
+        <div id="outline">
             <div class="register_content">
                 <div class="r-content-head">
                     <h4 style="font-weight: bolder;">加入會員</h4>

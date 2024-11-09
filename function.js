@@ -108,7 +108,7 @@ function addcart(p_id) {
     });
 }
 
-cart_content單筆取消功能
+//cart_content單筆取消功能
 function btn_confirmLink(message, url) {
     if (message == "" || url == "") {
         return false;
@@ -119,34 +119,4 @@ function btn_confirmLink(message, url) {
     return false;
 }
 
-
-
-// 會員登入功能
-$(function() {
-    $("#form1").submit(function() {
-        const inputAccount = $("#inputAccount").val();
-        const inputPassword = MD5($("#inputPassword").val());
-        $("#loading").show();
-        $.ajax({
-            url: 'auth_user.php',
-            type: 'post',
-            dataType: 'json',
-            data: {
-                inputAccount: inputAccount,
-                inputPassword: inputPassword,
-            },
-            success: function(date) {
-                if (data.c == true) {
-                    alert(data.m);
-                    window.location.href = "<?php echo $sPath; ?>"
-                } else {
-                    alert(data.m);
-                }
-            },
-            error: function(data) {
-                alert("系統目前無法連接到後台資料庫");
-            }
-        });
-    });
-});
 

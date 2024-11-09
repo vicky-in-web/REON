@@ -115,6 +115,19 @@ a {
   margin-right: 0.5rem;
 }
 
+.btn-reon-logout {
+  --bs-btn-color: #000;
+  --bs-btn-border-color: #000;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #dbb95a;
+  --bs-btn-hover-border-color: #dbb95a;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #dbb95a;
+  --bs-btn-active-border-color: #dbb95a;
+  border-radius: 25px;
+  font-size: 0.9rem;
+}
+
 #gotopspace {
   position: fixed;
   bottom: 50px;

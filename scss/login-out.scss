@@ -6,9 +6,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(./images/login_bg-2-1.png);
+    background-image: url("../images/login_bg-2-1.png");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
 }
 
 .frame {
@@ -98,30 +99,72 @@
 
 
 /* login-index */
-.member-behavior{
-    height: 100%;
-    width: 100%;
+@mixin disaplay_wraprow {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
-    gap: 50px;
+    @content;
 }
-.member-item{
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 5px solid #fff;
-    background-color: #ffffffb0;
-    font-size: 1.2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bolder;
-    color: #000;
-    transition: all 0.2s ease 0s;
+
+.login-index-container {
+    @include disaplay_wraprow {
+        height: 400px;
+        width: 100%;
+        gap: 5%;
+    }
 }
-.member-item:hover{
-    background-color: #79601cb0;
-    color: #ffffff;
+
+@mixin background-name($name) {
+    content: "#{$name}";
+    opacity: 0.3;
+    font-size: 150%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffd667;
+    text-align: center;
+    line-height: 250%;
+    transition: all 0.4s ease 0s;
+    @content;
+}
+
+.login-item {
+    @include disaplay_wraprow {
+        border: 2px solid #000;
+        border-radius: 10px;
+        width: 8rem;
+        height: 8rem;
+        font-weight: bolder;
+        position: relative;
+        transition: all 0.4s ease 0s;
+    }
+
+    &:nth-child(1)::after {
+        @include background-name(MEMBER PROFILE) {}
+    }
+
+    &:nth-child(2)::after {
+        @include background-name(ORDER LIST) {}
+    }
+
+    &:nth-child(3)::after {
+        @include background-name(WISH LIST) {}
+    }
+
+    &:nth-child(4)::after {
+        @include background-name(SPECIAL OFFER) {}
+    }
+
+    &:hover {
+        background-color: #a19060;
+        height: 70%;
+        color: #fff;
+
+        &::after {
+            line-height: 800%;
+            color: #000;
+        }
+    }
 }
