@@ -103,7 +103,7 @@
         </div>
         <div class="offcanvas-body">
             <?php
-            $SQLstring = "SELECT * FROM cart JOIN product ON cart.p_id = product.p_id ORDER BY cartid";
+            $SQLstring = "SELECT * FROM cart JOIN product ON cart.p_id = product.p_id WHERE orderid IS NULL ORDER BY cartid";
             $cart_rs = $link->query($SQLstring);
             $subtotal = 0;
             ?>

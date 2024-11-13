@@ -34,19 +34,26 @@ if (!isset($_SESSION['login'])) {
         </div>
         <div class="btn btn-reon-logout"><a href="logout.php">登出</a></div>
     </div>
-    <div class="login-index-container">
-        <a href="member_profile.php" class="login-item">
-            會員資料
-        </a>
-        <a href="order_list.php" class="login-item">
-            歷史訂單
-        </a>
-        <a href="wish_list.php" class="login-item">
-            收藏清單
-        </a>
-        <a href="special_offer.php" class="login-item">
-            專屬優惠
-        </a>
+    <div class="container">
+    <div class="row">
+        <div class="col-2">
+            <div class="login-side">
+                <a href="member_profile.php" class="login-side-item">會員資料</a>
+                <a href="order_list.php" class="login-side-item">歷史訂單</a>
+                <a href="wish_list.php" class="login-side-item activenow">收藏清單</a>
+                <a href="special_offer.php" class="login-side-item">專屬優惠</a>
+                <br>
+                <br>
+                <br>
+                <br>
+                <a href="login-index.php" class="login-side-item">會員首頁</a>
+            </div>
+        </div>
+        <div class="col-10">
+            <br>
+            目前尚未取得任何優惠。
+        </div>
+    </div>
     </div>
 
 
