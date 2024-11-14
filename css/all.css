@@ -118,6 +118,9 @@
   position: relative;
   transition: all 0.4s ease 0s;
 }
+.login-item a {
+  display: block;
+}
 .login-item:nth-child(1)::after {
   content: "MEMBER PROFILE";
   opacity: 0.3;
@@ -178,6 +181,87 @@
 .login-item:hover::after {
   line-height: 800%;
   color: #000;
+}
+
+.login-side {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 25px;
+  margin: 20px;
+  font-weight: bolder;
+}
+.login-side .login-side-item {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.login-side .login-side-item:nth-child(1)::after {
+  content: "PROFILE";
+  opacity: 0.5;
+  font-size: 150%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -90%);
+  color: #ffd667;
+  text-align: center;
+  transition: all 0.4s ease 0s;
+}
+.login-side .login-side-item:nth-child(2)::after {
+  content: "ORDER";
+  opacity: 0.5;
+  font-size: 150%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -90%);
+  color: #ffd667;
+  text-align: center;
+  transition: all 0.4s ease 0s;
+}
+.login-side .login-side-item:nth-child(3)::after {
+  content: "WISH";
+  opacity: 0.5;
+  font-size: 150%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -90%);
+  color: #ffd667;
+  text-align: center;
+  transition: all 0.4s ease 0s;
+}
+.login-side .login-side-item:nth-child(4)::after {
+  content: "SPECIAL";
+  opacity: 0.5;
+  font-size: 150%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -90%);
+  color: #ffd667;
+  text-align: center;
+  transition: all 0.4s ease 0s;
+}
+.login-side .login-side-item:nth-child(9)::after {
+  content: "HOME";
+  opacity: 0.5;
+  font-size: 150%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -90%);
+  color: #ffd667;
+  text-align: center;
+  transition: all 0.4s ease 0s;
+}
+.login-side .login-side-item:hover::after, .login-side .login-side-item.activenow::after {
+  transform: translate(-50%, -30%);
+  color: gray;
 }
 
 html {
