@@ -114,7 +114,9 @@ if ($addbook_rs && $addbook_rs->rowCount() != 0) {
                 <hr>
                 <?php
                 $SQLstring = sprintf(
-                    "SELECT *, city.Name AS ctName, town.Name AS toName FROM addbook LEFT JOIN town ON addbook.myzip = town.Post LEFT JOIN city ON town.AutoNo = city.AutoNo WHERE emailid='%d'",$_SESSION['emailid']);
+                    "SELECT *, city.Name AS ctName, town.Name AS toName FROM addbook LEFT JOIN town ON addbook.myzip = town.Post LEFT JOIN city ON town.AutoNo = city.AutoNo WHERE emailid='%d'",
+                    $_SESSION['emailid']
+                );
                 $addbook_rs = $link->query($SQLstring);
                 ?>
                 <table class="table">
