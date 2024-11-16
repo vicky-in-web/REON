@@ -7,14 +7,14 @@ $(function() {
 });
 
 // 回到最上面按鈕
-const gotopspace = document.getElementById('gotopspace');
-window.onscroll = function() {
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        gotopspace.classList.add('visible');
-    } else {
-        gotopspace.classList.remove('visible');
-    }
-};
+// const gotopspace = document.getElementById('gotopspace');
+// window.onscroll = function() {
+//     if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+//         gotopspace.classList.add('visible');
+//     } else {
+//         gotopspace.classList.remove('visible');
+//     }
+// };
 
 // 下單數量按鈕
 const input = document.getElementById('numberInput');

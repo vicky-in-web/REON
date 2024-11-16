@@ -69,7 +69,7 @@
                 }
                     ?>
                     <i class="fa-regular fa-circle-user fa-lg"></i></a>
-                    <a href="#"><i class="fa-regular fa-heart fa-lg"></i></a>
+                    <a href="wish_list.php"><i class="fa-regular fa-heart fa-lg"></i></a>
 
                     <a href="#">
                         <i class="fa-solid fa-cart-shopping fa-lg position-relative" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">

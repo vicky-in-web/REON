@@ -5,4 +5,5 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script src="./plugin/fancybox-2.1.7/source/jquery.fancybox.js"></script>
+    <!-- <script src="/gotop.js"></script> -->
     <!-- <script src="function.js"></script> -->

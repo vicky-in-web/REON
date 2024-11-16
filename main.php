@@ -195,189 +195,52 @@ require_once("php_lib.php");
     </section>
 
     <!-- 當月精選 -->
-    <section id="suggest" class="d-flex justify-content-center align-items-center">
+    <section id="suggest">
         <div class="container suggestion-size">
             <div class="row">
                 <div class="little-title">當月精選</div>
             </div>
-            <div class="row text-center d-flex justify-content-center">
-                <!-- 卡片一 -->
-                <div class="col-sm-2 d-flex justify-content-center">
-                    <div class="card" style="width: 10rem;">
-                        <!-- 卡一輪播 -->
-                        <div id="carouselExampleDark-1" class="carousel carousel-dark slide" data-bs-ride="false">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="images/g04L/01.webp" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/g04L/02.webp" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/g04L/03.webp" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/g04L/04.webp" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/g04L/05.webp" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/g04L/06.webp" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/g04L/07.webp" class="d-block w-100" alt="...">
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark-1" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark-1" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                        <!-- 卡一介紹 -->
-                        <div class="card-body d-flex flex-column justify-content-between">
-                            <div class="card-body-height">
-                                <h6 class="card-title" style="font-weight:bold">RESI0817G</h6>
-                                <p class="card-text">墨鏡眼鏡兩用/波士頓多角形/不鏽鋼/Asia fit鼻墊/REON DESIGN</p>
-                            </div>
-                            <a href="#" class="btn btn-reon-b btn-sm">了解更多</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- 卡片二 -->
-                <div class="col-sm-2 d-flex justify-content-center">
-                    <div class="card" style="width: 10rem;">
-                        <!-- 卡二輪播 -->
-                        <div id="carouselExampleDark-2" class="carousel carousel-dark slide" data-bs-ride="false">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="images/g04B/01.webp" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/g04B/02.webp" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/g04B/03.webp" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/g04B/04.webp" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/g04B/05.webp" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/g04B/06.webp" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/g04B/07.webp" class="d-block w-100" alt="...">
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark-2" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark-2" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                        <!-- 卡二介紹 -->
-                        <div class="card-body d-flex flex-column justify-content-between">
-                            <div class="card-body-height">
-                                <h6 class="card-title" style="font-weight:bold">RESI0817B</h6>
-                                <p class="card-text">墨鏡眼鏡兩用/波士頓多角形/不鏽鋼/Asia fit鼻墊/REON DESIGN</p>
-                            </div>
-                            <a href="#" class="btn btn-reon-b btn-sm">了解更多</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- 卡片三 -->
-                <div class="col-sm-2 d-flex justify-content-center">
-                    <div class="card" style="width: 10rem;">
-                        <!-- 卡三輪播 -->
-                        <div id="carouselExampleDark-3" class="carousel carousel-dark slide" data-bs-ride="false">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="images/g01/01.webp" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/g01/02.webp" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/g01/03.webp" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/g01/04.webp" class="d-block w-100" alt="...">
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark-3" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark-3" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                        <!-- 卡三介紹 -->
-                        <div class="card-body d-flex flex-column justify-content-between">
-                            <div class="card-body-height">
-                                <h6 class="card-title" style="font-weight:bold">NICA0817</h6>
-                                <p class="card-text">多角形/不鏽鋼/Asia fit鼻墊/NIA CIA</p>
-                            </div>
-                            <a href="#" class="btn btn-reon-b btn-sm">了解更多</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- 卡片四 -->
-                <div class="col-sm-2 d-flex justify-content-center">
-                    <div class="card" style="width: 10rem;">
-                        <!-- 卡四輪播 -->
-                        <div id="carouselExampleDark-4" class="carousel  carousel-dark slide" data-bs-ride="false">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="images/g02/01.webp" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/g02/02.webp" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/g02/03.webp" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/g02/04.webp" class="d-block w-100" alt="...">
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark-4" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark-4" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                        <!-- 卡四介紹 -->
-                        <div class="card-body d-flex flex-column justify-content-between">
-                            <div class="card-body-height">
-                                <h6 class="card-title" style="font-weight:bold">NICA0818</h6>
-                                <p class="card-text">方形/不鏽鋼/Asia fit鼻墊/NIA CIA</p>
-                            </div>
-                            <a href="#" class="btn btn-reon-b btn-sm">了解更多</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="row">
+                <!-- 建立產品列表自動帶入資料庫 -->
+                <?php
 
+                $queryStar = "SELECT * FROM reonstar, product, product_img WHERE product.p_open=1 AND product_img.sort=1 AND product.p_id = product_img.p_id AND product_img.p_id = reonstar.p_id ORDER BY reonstar.star_sort DESC";
+                $starList = $link->query($queryStar);
+                while ($starList_Row = $starList->fetch()) {
+                ?>
+
+                    <div class="col-md-3">
+                        <a href="good.php?p_id=<?php echo $starList_Row['p_id'] ?>">
+                            <div class="product-item">
+                                <div class="product-card-img"><img src="./images/<?php echo $starList_Row['img_file'];   ?>" alt="" class="p-img"></div>
+                                <div class="product-card-content">
+                                    <?php echo $starList_Row['p_name']; ?><br>$
+                                    <?php echo $starList_Row['p_price']; ?>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <?php
+                }
+                ?>
             </div>
         </div>
     </section>
 
     <?php require_once("footer.php") ?>
     <?php require_once("jsfile.php") ?>
+    <?php require_once("gotop.php") ?>
+
+    <script>
+        const gotopspace = document.getElementById('gotopspace');
+        window.onscroll = function() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                gotopspace.classList.add('visible');
+            } else {
+                gotopspace.classList.remove('visible');
+            }
+        };
+    </script>
 </body>
 
 </html>

@@ -34,10 +34,12 @@ require_once("php_lib.php");
     </section>
 
 
-    <?php require_once("gotop.php") ?>
+    <?php
+    require_once("gotop.php")
+    ?>
     <?php require_once("footer.php") ?>
-    <?php require_once("product_count.php") ?>
     <?php require_once("jsfile.php") ?>
+    <?php require_once("product_count.php") ?>
 
     <script>
         // 商品側欄圖片轉換
@@ -128,6 +130,62 @@ require_once("php_lib.php");
                 }
             });
         }
+
+        // 加入收藏
+        function addwishlist(p_id) {
+            $.ajax({
+                url: 'addwishlist.php',
+                type: 'get',
+                dataType: 'json',
+                data: {
+                    p_id: p_id,
+                },
+                success: function(data) {
+                    if (data.c == "1") { // 修正判斷條件
+                        alert(data.m);
+                        window.location.reload();
+                    } else {
+                        alert(data.m);
+                    }
+                },
+                error: function(data) {
+                    alert("資料庫連線失敗");
+                }
+            });
+        }
+
+        // 移除收藏
+        function removewishlist(p_id) {
+            $.ajax({
+                url: 'removewishlist.php',
+                type: 'get',
+                dataType: 'json',
+                data: {
+                    p_id: p_id
+                },
+                success: function(data) {
+                    if (parseInt(data.c) === 1) {
+                        alert(data.m); // 顯示移除成功訊息
+                        // 在此可以選擇重新載入頁面或更新特定部分的內容
+                        window.location.reload();
+                    } else {
+                        alert(data.m); // 顯示移除失敗訊息
+                    }
+                },
+                error: function() {
+                    alert("資料庫連線失敗，請稍後再試！");
+                }
+            });
+        }
+
+        const gotopspace = document.getElementById('gotopspace');
+        window.onscroll = function() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                gotopspace.classList.add('visible');
+            } else {
+                gotopspace.classList.remove('visible');
+            }
+        };
     </script>
 
 

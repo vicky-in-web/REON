@@ -2,24 +2,15 @@
 
     <?php require_once("breadcrumb.php") ?>
     <!-- 首欄大圖(輪播？) -->
-    <div id="carouselExampleFade" class="carousel slide carousel-fade">
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner showing-pic">
             <?php
-            // if(isset($_GET['classid'])){
-            //     // 如果有接收到指定的classid
-            //     $SQLstring="SELECT caro_id FROM carousel WHERE caro_online=1";
-            //     $classid_rs=$link->query($SQLstring);
-            //     $data=$classid_rs->fetch();
-            //     $ladder=$data['caro_id'];
-            // }else{
-            //     $ladder=1;
-            // }
             $SQLstring = "SELECT * FROM carousel WHERE caro_online=1 ORDER BY caro_sort";
             $carousel = $link->query($SQLstring);
             $i = 0; //控制active啟動
             while ($data = $carousel->fetch()) {
             ?>
-                <div class="carousel-item  <?php echo activeShow($i, 0) ?>">
+                <div class="carousel-item  <?php echo activeShow($i, 0) ?>" data-bs-interval="5000">
                     <a href="shopping.php?classid=<?php echo $data['class_id'] ?>">
                         <img src="./images/<?php echo $data['caro_pic']; ?>" class="d-block w-100" alt="..."></a>
                 </div>
@@ -57,7 +48,15 @@
             // 建立類別查詢
             else if (isset($_GET['classid'])) {
                 // 利用類別抓資料
-                $queryFirst = sprintf("SELECT * FROM product, product_img WHERE p_open=1 AND product_img.sort=1 AND product.p_id=product_img.p_id AND product.classid='%d' ORDER BY  product.p_id DESC", $_GET['classid']);
+                if (isset($_GET['classid'])) {
+                    if ($_GET['classid'] <= 4 || $_GET['classid'] == 40) {
+                        $queryFirst = sprintf("SELECT * FROM product, product_img WHERE p_open=1 AND product_img.sort=1 AND product.p_id=product_img.p_id AND product.lv1classid='%d' ORDER BY product.p_id DESC", $_GET['classid']);
+                    } else if (($_GET['classid'] >= 5 && $_GET['classid'] <= 16) || ($_GET['classid'] >= 41 && $_GET['classid'] <= 43)) {
+                        $queryFirst = sprintf("SELECT * FROM product, product_img WHERE p_open=1 AND product_img.sort=1 AND product.p_id=product_img.p_id AND product.lv2classid='%d' ORDER BY product.p_id DESC", $_GET['classid']);
+                    } else {
+                        $queryFirst = sprintf("SELECT * FROM product, product_img WHERE p_open=1 AND product_img.sort=1 AND product.p_id=product_img.p_id AND product.classid='%d' ORDER BY product.p_id DESC", $_GET['classid']);
+                    }
+                }
             } else {
                 // 列出產品查詢結果
                 $queryFirst = "SELECT * FROM product 
@@ -79,16 +78,15 @@
                     ?>
 
                     <div class="col-md-3">
-                        <div class="product-item">
-                            <div class="product-card-img"><img src="./images/<?php echo $pList01_Rows['img_file'];   ?>" alt="" class="p-img"></div>
-                            <div class="product-card-content">
-                                <?php echo $pList01_Rows['p_name']; ?><br>$
-                                <?php echo $pList01_Rows['p_price']; ?>
+                        <a href="good.php?p_id=<?php echo $pList01_Rows['p_id'] ?>">
+                            <div class="product-item">
+                                <div class="product-card-img"><img src="./images/<?php echo $pList01_Rows['img_file'];   ?>" alt="" class="p-img"></div>
+                                <div class="product-card-content">
+                                    <?php echo $pList01_Rows['p_name']; ?><br>$
+                                    <?php echo $pList01_Rows['p_price']; ?>
+                                </div>
                             </div>
-                            <div class="product-card-footer">
-                                <a href="good.php?p_id=<?php echo $pList01_Rows['p_id']?>"><button type="button" class="btn btn-reon-b btn-sm">了解更多</button></a>
-                            </div>
-                        </div>
+                        </a>
                     </div>
                     <?php if ($i % 4 == 0 || $i == $pList01->rowCount()) { ?>
                     </div>

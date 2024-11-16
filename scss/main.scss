@@ -24,7 +24,7 @@
 
 /* 特色服務區 */
 #service {
-    height: 15rem;
+    height: auto;
     color: #949494;
     letter-spacing: 0.2rem;
     font-size: 0.85rem;
@@ -33,6 +33,7 @@
     transform: translateY(10%);
     opacity: 0;
     transition: transform 1s ease, opacity 1s ease;
+    padding: 7rem 0 4rem 0;
 }
 
 #service.visible {
@@ -40,13 +41,19 @@
     opacity: 1;
 }
 
+
+
+
+// 當月精選
 #suggest {
-    height: 30rem;
-    position: relative;
-    overflow: hidden;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transform: translateY(10%);
     opacity: 0;
     transition: transform 1s ease, opacity 1s ease;
+    padding-bottom: 5rem;
 }
 
 #suggest.visible {
@@ -64,12 +71,13 @@
 
 /* 最新消息區 */
 #thenews {
-    height: 30rem;
+    height: auto;
     position: relative;
     overflow: hidden;
     transform: translateY(10%);
     opacity: 0;
     transition: transform 1s ease, opacity 1s ease;
+    padding: 2rem 0 ;
 }
 
 #thenews.visible {
@@ -123,3 +131,6 @@
 .news-item:hover {
     opacity: 0.6;
 }
+
+
+

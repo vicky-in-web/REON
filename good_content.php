@@ -44,7 +44,20 @@ $dataList = $data_rs->fetch();
                     <button class="btn btn-outline-dark" type="button" onclick="decreaseValue()">-</button>
                 </div>
                 </p>
-                <button class="btn btn-reon-b-order"><i class="fa-regular fa-heart"></i> 加入收藏</button>
+                <?php
+                $listString = sprintf("SELECT * FROM wishlist WHERE p_id=%d", $_GET['p_id']);
+                $list = $link->query($listString);
+                if ($list_Rows = $list->fetch()) {
+                ?>
+                    <button class="btn btn-reon-added" onclick="removewishlist(<?php echo $dataList['p_id'] ?>)"><i class="fa-solid fa-heart"></i> 移除收藏</button>
+
+                <?php
+                } else {
+                ?>
+                    <button class="btn btn-reon-wish" onclick="addwishlist(<?php echo $dataList['p_id'] ?>)"><i class="fa-regular fa-heart"></i> 加入收藏</button>
+                <?php
+                }
+                ?>
                 <button class="btn btn-reon-b-order" type="button" onclick="addcart(<?php echo $dataList['p_id']; ?>)"><i class="fa-solid fa-cart-shopping"></i> 加入購物車</button>
             </div>
         </div>
@@ -53,58 +66,7 @@ $dataList = $data_rs->fetch();
     <div id="product_intro">
         <h4>商品介紹</h4>
         <?php echo $dataList['p_content']; ?>
-        <!-- <h4>了解更多</h4>
-        <h4>注意事項</h4> -->
     </div>
-
-    <div id="something_about">
-        <h4 style="text-align: center;font-weight:bolder;padding-top:1rem;">相關商品</h4>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="product-item">
-                    <div class="product-card-img"><img src="./images/evercolor1-1.webp" alt="" class="p-img"></div>
-                    <div class="product-card-content">
-                        產品名稱<br>$1,000</div>
-                    <div class="product-card-footer">
-                        <button type="button" class="btn btn-reon-b btn-sm">了解更多</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="product-item">
-                    <div class="product-card-img"><img src="./images/evercolor1-1.webp" alt="" class="p-img"></div>
-                    <div class="product-card-content">
-                        產品名稱<br>$1,000</div>
-                    <div class="product-card-footer">
-                        <button type="button" class="btn btn-reon-b btn-sm">了解更多</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="product-item">
-                    <div class="product-card-img"><img src="./images/evercolor1-1.webp" alt="" class="p-img"></div>
-                    <div class="product-card-content">
-                        產品名稱<br>$1,000</div>
-                    <div class="product-card-footer">
-                        <button type="button" class="btn btn-reon-b btn-sm">了解更多</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="product-item">
-                    <div class="product-card-img"><img src="./images/evercolor1-1.webp" alt="" class="p-img"></div>
-                    <div class="product-card-content">
-                        產品名稱<br>$1,000</div>
-                    <div class="product-card-footer">
-                        <button type="button" class="btn btn-reon-b btn-sm">了解更多</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
 
 
 </div>

@@ -1,10 +1,11 @@
 <div class="col-2" id="sidebar">
     <div id="sidebar_background">
-        <ul><a href="shopping.php">全部商品</a></ul>
-        <hr>
-        <ul>第一步：選外觀！</ul>
-        <hr>
-        <ul>REON明星商品</ul>
+        <a href="shopping.php">
+            <div class="sidebar-all">全部商品</div>
+        </a>
+        <a href="shopping_reonstar.php">
+            <div class="sidebar-star">REON明星商品</div>
+        </a>
 
         <?php
         // 列出產品第一層
@@ -15,7 +16,7 @@
         <?php
         while ($class01_Rows = $class01->fetch()) {
         ?>
-            <ul style="margin-top: 1.5rem;"><a href="shopping.php?classid=<?php echo $class01_Rows['classid']?>"><span class="level1"><?php echo $class01_Rows['cname'] ?></span></a>
+            <div class="sidebar-level01"><a href="shopping.php?classid=<?php echo $class01_Rows['classid'] ?>"><span class="span01"><?php echo $class01_Rows['cname'] ?></span></a>
 
                 <?php
                 // 列出產品第二層
@@ -23,23 +24,19 @@
                 $class02 = $link->query($SQLstring);
                 while ($class02_Rows = $class02->fetch()) {
                 ?>
-                    <ul>
-                        <li><span class="level2"><a href="shopping.php?classid=<?php echo $class02_Rows['classid']; ?>"><?php echo $class02_Rows['cname'] ?></a></span>
+                    <div class="sidebar-level02"><a href="shopping.php?classid=<?php echo $class02_Rows['classid']; ?>"><span><?php echo $class02_Rows['cname'] ?></span></a>
+                        <?php
+                        // 列出產品第三層
+                        $SQLstring = sprintf("SELECT * FROM class WHERE level=3 AND uplink=%d ORDER BY sort", $class02_Rows['classid']);
+                        $class03 = $link->query($SQLstring);
+                        while ($class03_Rows = $class03->fetch()) {
+                        ?>
+                            <div class="sidebar-level03"><a href="shopping.php?classid=<?php echo $class03_Rows['classid']; ?>"><span><?php echo $class03_Rows['cname'] ?></span></a></div>
+                        <?php } ?>
+                    </div>
 
-                            <ul>
-                                <?php
-                                // 列出產品第三層
-                                $SQLstring = sprintf("SELECT * FROM class WHERE level=3 AND uplink=%d ORDER BY sort", $class02_Rows['classid']);
-                                $class03 = $link->query($SQLstring);
-                                while ($class03_Rows = $class03->fetch()) {
-                                ?>
-                                    <li><span class="level3"><a href="shopping.php?classid=<?php echo $class03_Rows['classid']; ?>"><?php echo $class03_Rows['cname'] ?></a></span></li>
-                                <?php } ?>
-                            </ul>
-                        </li>
-                    </ul>
                 <?php } ?>
-            </ul>
+            </div>
         <?php
             $i++;
         }
