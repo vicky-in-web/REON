@@ -1,27 +1,4 @@
 @charset "UTF-8";
-/* 本月主打區 */
-.card-body {
-  font-size: 14px;
-}
-
-.little-title {
-  letter-spacing: 10px;
-  font-weight: bolder;
-  color: #dbb95a;
-  font-size: 1.5rem;
-  padding: 20px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-/* .suggestion-size{
-    padding: 50px 0px 150px 0px;
-  } */
-.card-body-height {
-  padding-bottom: 10px;
-}
-
 /* 特色服務區 */
 #service {
   height: auto;
@@ -39,6 +16,17 @@
 #service.visible {
   transform: translateY(0);
   opacity: 1;
+}
+
+.little-title {
+  letter-spacing: 10px;
+  font-weight: bolder;
+  color: #dbb95a;
+  font-size: 1.5rem;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 #suggest {
@@ -81,7 +69,6 @@
   transition: color 0.1s ease 0s;
   transition: transform 0.6s ease 0s;
 }
-
 .text-grey:hover {
   color: #dbb95a;
   transform: translateX(40%);
@@ -116,7 +103,6 @@
   opacity: 1;
   transition: all 0.6s ease 0s;
 }
-
 .news-item:hover {
   opacity: 0.6;
 }/*# sourceMappingURL=main.css.map */

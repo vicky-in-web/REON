@@ -1,7 +1,7 @@
 <!-- 新版navbar -->
-<section class="navbar-wrapper-new" style="position: sticky;top:0px;z-index:999;">
+<section class="navbar-wrapper-new">
     <nav class="navbar-new">
-        <a href="main.php" class="logo-new">
+        <a href="main.php">
             <img src="images/REON_LOGO-2.png" title="REON里光眼鏡" class="logo-pic">
         </a>
 
@@ -33,9 +33,9 @@
                                     <a class="dropdown-new-title" href="shopping.php?classid=<?php echo $class02_Rows['classid']; ?>">
                                         <?php echo $class02_Rows['cname'] ?> </a>
 
-                                    <ul class="dropdown-new-list">
+                                    <div class="dropdown-new-list">
 
-                                        <li class="dropdown-new-item">
+                                        <div class="dropdown-new-item">
                                             <?php
                                             // 列出產品第三層
                                             $SQLstring = sprintf("SELECT * FROM class WHERE level=3 AND uplink=%d ORDER BY sort", $class02_Rows['classid']);
@@ -44,8 +44,8 @@
                                             ?>
                                                 <a href="shopping.php?classid=<?php echo $class03_Rows['classid']; ?>" class="dropdown-new-link"><?php echo $class03_Rows['cname'] ?></a>
                                             <?php } ?>
-                                        </li>
-                                    </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             <?php } ?>
                         </div>

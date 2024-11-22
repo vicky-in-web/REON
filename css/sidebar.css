@@ -1,7 +1,5 @@
 /* SIDE BAR */
 #sidebar_background {
-  height: -moz-fit-content;
-  height: fit-content;
   width: 100%;
   background-color: #eee;
   color: #333;
@@ -17,7 +15,6 @@
   align-items: flex-start;
   justify-content: center;
   position: relative;
-  border-bottom: 1px solid #ccc;
   padding: 10%;
 }
 #sidebar_background .sidebar-all:hover::after {
@@ -31,7 +28,7 @@
   left: 0;
   font-size: 3rem;
   font-weight: bolder;
-  color: #cecc59;
+  color: #979777;
   opacity: 0.1;
   transform: translate(0, -50%);
   transition: all 0.5s ease 0s;
@@ -44,7 +41,6 @@
   align-items: flex-start;
   justify-content: center;
   position: relative;
-  border-bottom: 1px solid #ccc;
   padding: 10%;
 }
 #sidebar_background .sidebar-star:hover::after {
@@ -58,7 +54,7 @@
   left: 0;
   font-size: 3rem;
   font-weight: bolder;
-  color: #cecc59;
+  color: #979777;
   opacity: 0.1;
   transform: translate(0, -50%);
   transition: all 0.5s ease 0s;
@@ -71,35 +67,79 @@
   align-items: flex-start;
   justify-content: center;
   position: relative;
-  border-bottom: 1px solid #ccc;
   padding: 10% 0 10% 10%;
-  transition: all 0.3s ease 0;
 }
 #sidebar_background .sidebar-level01 .span01 {
+  position: relative;
   font-weight: bolder;
   display: inline-block;
-  padding-bottom: 15%;
-  transition: all 0.3s ease 0;
+  margin-bottom: 10%;
 }
-#sidebar_background .sidebar-level01 .span01:hover {
-  opacity: 0.7;
+#sidebar_background .sidebar-level01 .span01::after {
+  content: "";
+  width: 0%;
+  height: 0.5px;
+  background-color: #333;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.2s ease 0s;
+}
+#sidebar_background .sidebar-level01 .span01:hover::after {
+  width: 100%;
 }
 #sidebar_background .sidebar-level01 .sidebar-level02 {
-  padding: 0 0 0 8%;
+  display: flex;
+  flex-flow: column wrap;
+  height: -moz-fit-content;
+  height: fit-content;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
 }
-#sidebar_background .sidebar-level01 .sidebar-level02 span {
-  display: inline-block;
-  padding-bottom: 5%;
-  padding-top: 5%;
-  transition: all 0.3s ease 0;
+#sidebar_background .sidebar-level01 .sidebar-level02 div {
+  position: relative;
 }
-#sidebar_background .sidebar-level01 .sidebar-level02 span:hover {
-  opacity: 0.7;
+#sidebar_background .sidebar-level01 .sidebar-level02 div::after {
+  content: "";
+  width: 0%;
+  height: 0.5px;
+  background-color: #333;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.2s ease 0s;
+}
+#sidebar_background .sidebar-level01 .sidebar-level02 div:hover::after {
+  width: 100%;
 }
 #sidebar_background .sidebar-level01 .sidebar-level03 {
-  padding: 0 0 0 15%;
-  transition: all 0.3s ease 0;
+  display: flex;
+  flex-flow: column wrap;
+  height: -moz-fit-content;
+  height: fit-content;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+  margin: 2% 0 5% 0;
 }
-#sidebar_background .sidebar-level01 .sidebar-level03:hover {
-  opacity: 0.7;
+#sidebar_background .sidebar-level01 .sidebar-level03 span {
+  position: relative;
+  opacity: 0.5;
+}
+#sidebar_background .sidebar-level01 .sidebar-level03 span::after {
+  content: "";
+  width: 0%;
+  height: 0.5px;
+  background-color: #333;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.2s ease 0s;
+}
+#sidebar_background .sidebar-level01 .sidebar-level03 span:hover::after {
+  width: 100%;
 }/*# sourceMappingURL=sidebar.css.map */

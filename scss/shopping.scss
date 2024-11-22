@@ -1,4 +1,4 @@
-/* 商品列表 */
+/* 目前位置 */
 #breadcrumb {
     background-color: #eee;
     color: #333;
@@ -7,6 +7,8 @@
     border-radius: 15px;
     padding: 12px 10px 10px 20px;
 }
+
+// 圖片輪播
 
 .showing-pic {
     border-radius: 15px;
@@ -17,8 +19,9 @@
     border-radius: 15px;
 }
 
+
+// 商品列表
 .product-list-content {
-    /* border: 1px solid #333; */
     border-radius: 15px;
     margin: 20px;
 }
@@ -35,31 +38,27 @@
 
     .product-card-img {
         width: 100%;
+        aspect-ratio: 1;
         margin-bottom: 0.5rem;
-        transition: all 0.3s ease 0;
         display: flex;
         justify-content: center;
+        transition: all 0.3s ease 0;
+        overflow: hidden;
 
         .p-img {
-            width: 90%;
+            width: 100%;
             transition: all 0.3s ease 0s;
         }
     }
 
     &:hover {
         box-shadow: 0px 0 10px #bbb;
-        transition: all 0.2s ease 0s;
 
         &>.product-card-img>.p-img {
-            width: 100%;
+            transform: scale(1.1);
         }
     }
 }
-
-#navigation {
-    margin: 40px 20px;
-}
-
 
 
 .product-card-content {
@@ -74,51 +73,60 @@
 }
 
 
+#navigation {
+    margin: 40px 20px;
+}
 
 /* 頁碼 */
 .pagination {
     justify-content: center;
     margin: 0px 90px 50px 0px;
     border-radius: 0;
-}
 
-.pagination .page-item .page-link {
-    background-color: #fff;
-    color: #999;
-    border: none;
-    padding: 10px 15px;
-    outline: none;
-    /* 移除光暈 */
-}
+    .page-item {
 
-.pagination .page-item.active .page-link {
-    background-color: #fff;
-    color: #000;
-    border-radius: 0;
-    border-bottom: 2px solid #000;
-}
+        .page-link {
+            background-color: #fff;
+            color: #999;
+            border: none;
+            padding: 10px 15px;
+            outline: none;
 
-.pagination .page-item:first-child .page-link {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-}
+            &:hover {
+                border-bottom: 2px solid #000;
+                color: #000;
+            }
 
-.pagination .page-item:last-child .page-link {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-}
+            &:focus {
+                box-shadow: 0 0 0 0;
+                outline: none;
+                border-bottom: 2px solid #000;
+                color: #000;
+            }
+        }
 
-.pagination .page-item .page-link:hover {
-    border-bottom: 2px solid #000;
-    color: #000;
-}
+        &.active .page-link {
+            background-color: #fff;
+            color: #000;
+            border-radius: 0;
+            border-bottom: 2px solid #000;
+        }
 
-/* 可選：自定義焦點效果 */
-.pagination .page-item .page-link:focus {
-    box-shadow: 0 0 0 0;
-    /* 自定義光暈顏色和樣式 */
-    outline: none;
-    /* 確保光暈不顯示 */
-    border-bottom: 2px solid #000;
-    color: #000;
+        &.active .page-link {
+            background-color: #fff;
+            color: #000;
+            border-radius: 0;
+            border-bottom: 2px solid #000;
+        }
+
+        &:first-child .page-link {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        &:last-child .page-link {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+    }
 }

@@ -24,15 +24,20 @@
                 $class02 = $link->query($SQLstring);
                 while ($class02_Rows = $class02->fetch()) {
                 ?>
-                    <div class="sidebar-level02"><a href="shopping.php?classid=<?php echo $class02_Rows['classid']; ?>"><span><?php echo $class02_Rows['cname'] ?></span></a>
+                    <div class="sidebar-level02"><a href="shopping.php?classid=<?php echo $class02_Rows['classid']; ?>">
+                            <div><?php echo $class02_Rows['cname'] ?></div>
+                        </a>
+                    </div>
+                    <div class="sidebar-level03">
                         <?php
                         // 列出產品第三層
                         $SQLstring = sprintf("SELECT * FROM class WHERE level=3 AND uplink=%d ORDER BY sort", $class02_Rows['classid']);
                         $class03 = $link->query($SQLstring);
                         while ($class03_Rows = $class03->fetch()) {
                         ?>
-                            <div class="sidebar-level03"><a href="shopping.php?classid=<?php echo $class03_Rows['classid']; ?>"><span><?php echo $class03_Rows['cname'] ?></span></a></div>
+                            <a href="shopping.php?classid=<?php echo $class03_Rows['classid']; ?>"><span><?php echo $class03_Rows['cname'] ?></span></a>
                         <?php } ?>
+
                     </div>
 
                 <?php } ?>

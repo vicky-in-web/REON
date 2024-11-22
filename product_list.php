@@ -31,7 +31,7 @@
 
     <!-- 商品列表 -->
     <div class="product-list-content">
-        <div class="container-fluid">
+        <div class="container">
 
             <!-- 建立產品列表自動帶入資料庫 -->
             <?php
@@ -80,7 +80,9 @@
                     <div class="col-md-3">
                         <a href="good.php?p_id=<?php echo $pList01_Rows['p_id'] ?>">
                             <div class="product-item">
-                                <div class="product-card-img"><img src="./images/<?php echo $pList01_Rows['img_file'];   ?>" alt="" class="p-img"></div>
+                                <div class="product-card-img">
+                                    <img src="./images/<?php echo $pList01_Rows['img_file'];   ?>" alt="" class="p-img">
+                                </div>
                                 <div class="product-card-content">
                                     <?php echo $pList01_Rows['p_name']; ?><br>$
                                     <?php echo $pList01_Rows['p_price']; ?>

@@ -1,29 +1,31 @@
+@use '_mixin.scss' as *;
+
 #footer {
     color: rgb(255, 254, 249);
     background-color: #dbb95a;
     padding: 100px 100px 100px 100px;
     height: auto;
     display: flex;
+
+    .footer-flex {
+        @include flex-col-center();
+        text-align: center;
+        justify-content: flex-start;
+
+        .footer_title {
+            font-size: 20px;
+            font-weight: bolder;
+            padding: 10px;
+        }
+
+        .footer_content {
+            font-size: 14px;
+            line-height: 200%;
+        }
+    }
 }
 
-.footer-flex {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-}
 
-.footer_title {
-    font-size: 20px;
-    font-weight: bolder;
-    padding: 10px;
-}
-
-.footer_content {
-    font-size: 14px;
-    line-height: 200%;
-}
 
 .motto {
     display: flex;
@@ -31,13 +33,14 @@
     flex-direction: column;
     flex-wrap: nowrap;
     letter-spacing: 10px;
+
+    .mottoline {
+        border-bottom: solid rgb(255, 255, 255);
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+    }
 }
 
-.mottoline {
-    border-bottom: solid rgb(255, 255, 255);
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-}
 
 .contact-color {
     color: black;
@@ -51,6 +54,7 @@
 .social-media-logo {
     padding-bottom: 20px;
 }
+
 /* 版權尾 */
 .copyright-area {
     padding: 60px 0px 30px 0px;
@@ -61,7 +65,7 @@
     line-height: 0.7rem;
 }
 
-#footer .a {
+#footer a {
     color: white;
 }
 
