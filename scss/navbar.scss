@@ -92,7 +92,7 @@
         .dropdown-new-link {
             @include hover-underline;
             color: #333;
-            font-size: 0.8rem;
+            opacity: 0.6;
         }
     }
 }

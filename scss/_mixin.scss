@@ -1,3 +1,5 @@
+$footer_color:#dbb95a;
+
 @mixin side_name {
     display: flex;
     flex-flow: column wrap;
@@ -56,5 +58,65 @@
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
+    @content;
+}
+
+@mixin disaplay_wraprow {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    @content;
+}
+
+@mixin disaplay_row {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    @content;
+}
+
+
+@mixin background-name($name) {
+    content: "#{$name}";
+    opacity: 0.3;
+    font-size: 150%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffd667;
+    text-align: center;
+    line-height: 250%;
+    transition: all 0.4s ease 0s;
+    @content;
+}
+
+@mixin login-side-name($name) {
+    content: "#{$name}";
+    opacity: 0.5;
+    font-size: 150%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -90%);
+    color: $footer_color;
+    text-align: center;
+    transition: all 0.4s ease 0s;
+    @content;
+}
+
+@mixin login-side-now($name) {
+    content: "#{$name}";
+    opacity: 0.5;
+    font-size: 150%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    color: gray;
+    text-align: center;
+    transition: all 0.4s ease 0s;
     @content;
 }

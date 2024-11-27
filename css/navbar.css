@@ -93,7 +93,7 @@
 .dropdown-new-list .dropdown-new-item .dropdown-new-link {
   position: relative;
   color: #333;
-  font-size: 0.8rem;
+  opacity: 0.6;
 }
 .dropdown-new-list .dropdown-new-item .dropdown-new-link::after {
   content: "";

@@ -40,6 +40,7 @@ require_once("php_lib.php");
                 <div class="col-md-10" id="product_list">
 
                     <?php require_once("breadcrumb.php") ?>
+
                     <!-- 首欄大圖(輪播？) -->
                     <div id="carouselExampleFade" class="carousel slide carousel-fade">
                         <div class="carousel-inner showing-pic">
@@ -70,27 +71,25 @@ require_once("php_lib.php");
 
                     <!-- 商品列表 -->
                     <div class="product-list-content">
-                        <div class="container-fluid">
+                        <div class="container">
                             <div class="row">
                                 <!-- 建立產品列表自動帶入資料庫 -->
                                 <?php
-
                                 $queryStar = "SELECT * FROM reonstar, product, product_img WHERE product.p_open=1 AND product_img.sort=1 AND product.p_id = product_img.p_id AND product_img.p_id = reonstar.p_id ORDER BY reonstar.star_sort DESC";
                                 $starList = $link->query($queryStar);
                                 while ($starList_Row = $starList->fetch()) {
                                 ?>
 
                                     <div class="col-md-3">
-                                        <div class="product-item">
-                                            <div class="product-card-img"><img src="./images/<?php echo $starList_Row['img_file'];   ?>" alt="" class="p-img"></div>
-                                            <div class="product-card-content">
-                                                <?php echo $starList_Row['p_name']; ?><br>$
-                                                <?php echo $starList_Row['p_price']; ?>
+                                        <a href="good.php?p_id=<?php echo $starList_Row['p_id'] ?>">
+                                            <div class="product-item">
+                                                <div class="product-card-img"><img src="./images/<?php echo $starList_Row['img_file'];   ?>" alt="" class="p-img"></div>
+                                                <div class="product-card-content">
+                                                    <?php echo $starList_Row['p_name']; ?><br>$
+                                                    <?php echo $starList_Row['p_price']; ?>
+                                                </div>
                                             </div>
-                                            <div class="product-card-footer">
-                                                <a href="good.php?p_id=<?php echo $starList_Row['p_id'] ?>"><button type="button" class="btn btn-reon-b btn-sm">了解更多</button></a>
-                                            </div>
-                                        </div>
+                                        </a>
                                     </div>
                                 <?php
                                 }

@@ -1,3 +1,5 @@
+@use '_mixin.scss' as *;
+
 /* login登入畫面 */
 #outline {
     overflow: hidden;
@@ -20,13 +22,13 @@
     box-shadow: 5px 5px 15px rgb(66, 66, 66);
     animation: slideIn 1.2s ease forwards;
     padding: 10px;
-}
 
-.frame form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
 }
 
 @keyframes slideIn {
@@ -66,10 +68,10 @@
     height: 2rem;
     border: solid 2px white;
     width: auto;
-}
 
-.enterInput:hover {
-    border: solid 2px black;
+    &:hover {
+        border: solid 2px black;
+    }
 }
 
 .btn-login {
@@ -83,11 +85,10 @@
     transition: all 0.1s ease 0s;
     text-align: center;
     font-size: 1rem;
-}
 
-.btn-login:hover {
-    border: solid 3px white;
-
+    &:hover {
+        border: solid 3px white;
+    }
 }
 
 .forget {
@@ -99,14 +100,6 @@
 
 
 /* login-index */
-@mixin disaplay_wraprow {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-    @content;
-}
-
 .login-index-container {
     @include disaplay_wraprow {
         height: 400px;
@@ -116,24 +109,9 @@
 
 }
 
-@mixin background-name($name) {
-    content: "#{$name}";
-    opacity: 0.3;
-    font-size: 150%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #ffd667;
-    text-align: center;
-    line-height: 250%;
-    transition: all 0.4s ease 0s;
-    @content;
-}
-
 .login-item {
     @include disaplay_wraprow {
-        border: 2px solid #000;
+        border: 2px solid $footer_color;
         border-radius: 10px;
         width: 8rem;
         height: 8rem;
@@ -163,44 +141,18 @@
     }
 
     &:hover {
-        background-color: #a19060;
+        background-color: $footer_color;
         height: 70%;
         color: #fff;
 
         &::after {
             line-height: 800%;
-            color: #000;
+            color: #fff;
         }
     }
 }
 
-@mixin login-side-name($name) {
-    content: "#{$name}";
-    opacity: 0.5;
-    font-size: 150%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -90%);
-    color: #ffd667;
-    text-align: center;
-    transition: all 0.4s ease 0s;
-    @content;
-}
 
-@mixin login-side-now($name) {
-    content: "#{$name}";
-    opacity: 0.5;
-    font-size: 150%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -30%);
-    color: gray;
-    text-align: center;
-    transition: all 0.4s ease 0s;
-    @content;
-}
 
 .login-side {
     display: flex;

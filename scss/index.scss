@@ -1,18 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Archivo+Black&family=Noto+Serif+TC:wght@200..900&family=Righteous&display=swap');
 
+@use '_mixin.scss' as *;
+
 html {
     margin: 0;
     padding: 0;
     font-family: "Righteous";
 
-}
-
-@mixin disaplay_row {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
-    @content;
 }
 
 .background {

@@ -127,7 +127,7 @@
 }
 #sidebar_background .sidebar-level01 .sidebar-level03 span {
   position: relative;
-  opacity: 0.5;
+  opacity: 0.6;
 }
 #sidebar_background .sidebar-level01 .sidebar-level03 span::after {
   content: "";
