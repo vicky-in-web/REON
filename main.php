@@ -31,43 +31,6 @@ require_once("php_lib.php");
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php require_once("headfile.php") ?>
-
-    <script>
-        document.addEventListener('scroll', () => {
-            const serviceSection = document.getElementById('service');
-            const viewportHeight = window.innerHeight;
-            const sectionTop = serviceSection.getBoundingClientRect().top;
-
-            if (sectionTop < viewportHeight * 0.8) { // 當 section 80% 進入視口時觸發動畫
-                serviceSection.classList.add('visible');
-            } else {
-                serviceSection.classList.remove('visible');
-            }
-        });
-        document.addEventListener('scroll', () => {
-            const suggestSection = document.getElementById('suggest');
-            const viewportHeight = window.innerHeight;
-            const sectionTop = suggestSection.getBoundingClientRect().top;
-
-            if (sectionTop < viewportHeight * 0.8) {
-                suggestSection.classList.add('visible');
-            } else {
-                suggestSection.classList.remove('visible');
-            }
-        });
-        document.addEventListener('scroll', () => {
-            const thenewsSection = document.getElementById('thenews');
-            const viewportHeight = window.innerHeight;
-            const sectionTop = thenewsSection.getBoundingClientRect().top;
-
-            if (sectionTop < viewportHeight * 0.8) {
-                thenewsSection.classList.add('visible');
-            } else {
-                thenewsSection.classList.remove('visible');
-            }
-        });
-    </script>
-
 </head>
 
 <body>
@@ -111,7 +74,6 @@ require_once("php_lib.php");
             </div>
         </div>
     </section>
-
     <!-- 特色服務 -->
     <section id="service" class="d-flex justify-content-center align-items-center">
         <div class="container">
@@ -144,56 +106,15 @@ require_once("php_lib.php");
         </div>
 
     </section>
-
     <!-- 最新消息 -->
     <section id="thenews" class="d-flex justify-content-center align-items-center">
         <div class="container-fluid">
             <div class="row">
                 <div class="little-title">最新消息</div>
             </div>
-            <div class="row">
-                <div class="col-sm-3 news-item">
-                    <a href="#" style="display: block; text-decoration: none;">
-                        <div>
-                            <img src="images/room.jpg" alt="" class="news-item-img">
-                        </div>
-                        <div class="news-item-body">
-                            勤美門市即將開幕！延續REON活潑風格！<br>2024/08/22
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-3 news-item">
-                    <a href="#" style="display: block; text-decoration: none;">
-                        <div>
-                            <img src="images/50percentoff.jpg" alt="" class="news-item-img">
-                        </div>
-                        <div class="news-item-body">
-                            慶祝REON五歲了！多樣商品五折優惠！<br>2024/08/19
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-3 news-item">
-                    <a href="#" style="display: block; text-decoration: none;">
-                        <div>
-                            <img src="images/news3.jpg" alt="" class="news-item-img">
-                        </div>
-                        <div class="news-item-body">
-                            LENS TOWN進駐REON啦！多款系列任挑！<br>2024/07/30
-                        </div>
-                    </a>
-                </div>
-                <div class="card col-sm-3 d-flex justify-content-center align-items-center ">
-                    <a href="#" class="text-grey">
-                        <h1 style="line-height:7rem;"><i class="fa-regular fa-circle-up fa-rotate-90 fa-2xl"></i></h1>
-                        <h6 style="font-weight:bold;">更 多 消 息 </h6>
-                    </a>
-                </div>
-            </div>
-        </div>
-        </div>
+            <div id="newslist"></div>
         </div>
     </section>
-
     <!-- 當月精選 -->
     <section id="suggest">
         <div class="container suggestion-size">
@@ -226,21 +147,9 @@ require_once("php_lib.php");
             </div>
         </div>
     </section>
-
+    
     <?php require_once("footer.php") ?>
     <?php require_once("jsfile.php") ?>
-    <?php require_once("gotop.php") ?>
-
-    <script>
-        const gotopspace = document.getElementById('gotopspace');
-        window.onscroll = function() {
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                gotopspace.classList.add('visible');
-            } else {
-                gotopspace.classList.remove('visible');
-            }
-        };
-    </script>
 </body>
 
 </html>

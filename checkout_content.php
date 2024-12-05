@@ -22,8 +22,8 @@ if ($addbook_rs && $addbook_rs->rowCount() != 0) {
 }
 ?>
 
-
-<div class="col-8">
+<div class="col-1"></div>
+<div class="col-7">
     <div class="page-title" style="margin-right:0;">
         <div class="location">
             <div class="location_item">確認商品</div>
@@ -59,9 +59,6 @@ if ($addbook_rs && $addbook_rs->rowCount() != 0) {
         <button class="btn btn-reon-nextstep" type="button" id="btn04" name="btn04"><a href="#">確認下單</a></button>
     </div>
 </div>
-
-
-
 
 <!-- Modal -->
 <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -166,15 +163,7 @@ if ($addbook_rs && $addbook_rs->rowCount() != 0) {
     </div>
 </div>
 
-
-
-
-
-
-
-
-
-<div class="col-4">
+<div class="col-3">
     <div id="list_area">
         <h5>購買清單</h5>
         <br>
@@ -219,3 +208,4 @@ if ($addbook_rs && $addbook_rs->rowCount() != 0) {
         </div>
     </div>
 </div>
+<div class="col-1"></div>

@@ -50,20 +50,9 @@ if (!isset($_SESSION['login'])) {
                 </div>
             </div>
             <div class="col-10">
-                <?php
-                $SQLstring = "SELECT * FROM wishlist ORDER BY listid DESC";
-                $wishlist = $link->query($SQLstring);
-                if ($wishlist_Rows = $wishlist->fetch()) {
-                ?>
-                    <p>功能等待開發中</p>
-                <?php
-                } else {
-                ?>
-                    <br><p>目前沒有追蹤中的商品，快去逛逛吧！</p>
-                <?php
-                };
-                ?>
-            </div>
+            <br>
+            等待開發中，敬請期待。
+        </div>
         </div>
     </div>
 

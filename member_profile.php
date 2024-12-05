@@ -51,7 +51,7 @@ if (!isset($_SESSION['login'])) {
             </div>
             <div class="col-10">
                 <br>
-                目前尚未取得任何優惠。
+                等待開發中，敬請期待。
             </div>
         </div>
     </div>

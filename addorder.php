@@ -24,26 +24,3 @@ if (isset($_SESSION['emailid']) && $_SESSION['emailid'] != "") {
 }
 return;
 
-    //     if ($result) {
-    //         // 更新 cart 資料表
-    //         $query = sprintf("UPDATE cart SET orderid='%s', emailid='%d', status='8' WHERE ip='%s' AND orderid IS NULL;", $orderid, $emailid, $ip);
-    //         $result = $link->query($query);
-
-    //         // 檢查更新是否成功
-    //         if ($result) {
-    //             // 刪除已經完成結帳的購物車記錄
-    //             $deleteQuery = sprintf("DELETE FROM cart WHERE emailid='%d' AND status='8';", $emailid);
-    //             $deleteResult = $link->query($deleteQuery);
-
-    //             // 返回成功訊息
-    //             if ($deleteResult) {
-    //                 $retcode = array("c" => "1", "m" => '謝謝您，系統已經完成結帳，請在首頁查閱訂單處理狀態。');
-    //             } else {
-    //                 $retcode = array("c" => "0", "m" => '抱歉！無法清空購物車，請聯絡管理人員');
-    //             }
-    //         } else {
-    //             $retcode = array("c" => "0", "m" => '抱歉！資料無法寫入後台資料庫，請聯絡管理人員');
-    //         }
-    //         echo json_encode($retcode, JSON_UNESCAPED_UNICODE);
-    //     }
-    // }

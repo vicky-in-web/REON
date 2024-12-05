@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Anton+SC&family=Archivo+Black&family=Noto+Serif+TC:wght@200..900&family=Righteous&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Anton+SC&family=Archivo+Black&family=Noto+Sans+TC:wght@100..900&family=Noto+Serif+TC:wght@200..900&family=Righteous&display=swap");
 html {
   margin: 0;
@@ -7,70 +6,66 @@ html {
 }
 
 .background {
-  width: 100%;
-  height: 100vh;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 100vh;
   overflow: hidden;
   position: relative;
 }
 
-/* 
-@mixin disaplay_row {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
-    @content;
-} */
-/* .outline {
-    @include display_row {
-        font-size: 12rem;
-        color: #dbb95a;
-        background-color: #eee;
-    }
-} */
 .outline {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
   font-size: 12rem;
   color: #dbb95a;
+  position: absolute;
+}
+.outline a {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
-  position: absolute;
-}
-
-.outline a {
   text-decoration: none;
   color: inherit;
-  display: block;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  align-items: center;
   position: absolute;
 }
+.outline a:hover > .ON {
+  left: 160px;
+}
+.outline a:hover > .RE {
+  right: 120px;
+}
+.outline:hover + .motto {
+  opacity: 1;
+}
 
+@keyframes show_start {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .RE {
   position: relative;
   right: 0;
   transition: all 1s ease 0s;
+  opacity: 0;
+  animation: show_start 1s forwards;
 }
 
 .ON {
   position: relative;
   left: 0;
   transition: all 1s ease 0s;
-}
-
-.outline a:hover > .RE {
-  right: 120px;
-}
-
-.outline a:hover > .ON {
-  left: 160px;
+  opacity: 0;
+  animation: show_start 1s forwards;
 }
 
 .motto {
@@ -89,10 +84,6 @@ html {
 
 .down {
   text-align: center;
-}
-
-.outline:hover + .motto {
-  opacity: 1;
 }
 
 .middleline {

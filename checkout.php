@@ -26,18 +26,6 @@ if (!isset($_SESSION['login'])) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php require_once("headfile.php") ?>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: system-ui, -apple-system, sans-serif;
-            background: #fff;
-        }
-    </style>
 </head>
 
 <body>
@@ -51,8 +39,6 @@ if (!isset($_SESSION['login'])) {
         </div>
     </section>
 
-
-    <?php require_once("gotop.php") ?>
     <?php require_once("footer.php") ?>
     <?php require_once("jsfile.php") ?>
 
@@ -215,15 +201,6 @@ if (!isset($_SESSION['login'])) {
                 }
             });
         });
-
-        const gotopspace = document.getElementById('gotopspace');
-        window.onscroll = function() {
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                gotopspace.classList.add('visible');
-            } else {
-                gotopspace.classList.remove('visible');
-            }
-        };
     </script>
 </body>
 

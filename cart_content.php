@@ -1,5 +1,6 @@
+<div class="col-2"></div>
 <?php if ($cart_rs->rowCount() != 0) { ?>
-    <div class="col-9">
+    <div class="col-8">
         <div class="page-title">
             <div class="location">
                 <div class="location_item"><a href="#">確認商品</a></div>
@@ -113,10 +114,4 @@
 <?php
 };
 ?>
-<div class="col-3">
-    <div id="plus_area">
-        <h5>經典加購</h5>
-        <div class="plus-item">
-        </div>
-    </div>
-</div>
+<div class="col-2"></div>

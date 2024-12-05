@@ -69,7 +69,7 @@ $footer_color:#dbb95a;
     @content;
 }
 
-@mixin disaplay_row {
+@mixin display_row {
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;

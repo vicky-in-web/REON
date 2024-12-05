@@ -1,11 +1,17 @@
-html {
-  margin: 0;
-  padding: 0;
-}
-
 a {
   text-decoration: none;
   color: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #fff;
 }
 
 .btn-reon {
@@ -92,7 +98,7 @@ a {
   --bs-btn-disabled-color: #000;
   --bs-btn-disabled-bg: #949494;
   --bs-btn-disabled-border-color: #db9696;
-  padding: 0.5rem 2.5rem;
+  padding: 1rem 2.5rem;
   margin-right: 0.5rem;
   margin-bottom: 0.5rem;
 }
@@ -154,6 +160,7 @@ a {
   --bs-btn-disabled-border-color: #db9696;
   padding: 0.5rem 2.5rem;
   margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .btn-reon-logout {

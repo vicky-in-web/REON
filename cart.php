@@ -15,18 +15,6 @@ require_once("php_lib.php");
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php require_once("headfile.php") ?>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: system-ui, -apple-system, sans-serif;
-            background: #fff;
-        }
-    </style>
 </head>
 
 <body>
@@ -40,14 +28,12 @@ require_once("php_lib.php");
         </div>
     </section>
 
-
-    <?php require_once("gotop.php") ?>
     <?php require_once("footer.php") ?>
     <?php require_once("product_count.php") ?>
     <?php require_once("jsfile.php") ?>
 
     <script>
-        //cart_content單筆取消功能
+        //單筆取消功能
         function btn_confirmLink(message, url) {
             if (message == "" || url == "") {
                 return false;
@@ -87,14 +73,6 @@ require_once("php_lib.php");
             })
         })
 
-        const gotopspace = document.getElementById('gotopspace');
-        window.onscroll = function() {
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                gotopspace.classList.add('visible');
-            } else {
-                gotopspace.classList.remove('visible');
-            }
-        };
     </script>
 </body>
 
