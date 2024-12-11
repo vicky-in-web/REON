@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Archivo+Black&family=Noto+Serif+TC:wght@200..900&family=Righteous&display=block');
-
 @use '_mixin.scss' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Archivo+Black&family=Noto+Serif+TC:wght@200..900&family=Righteous&display=block');
 
 html {
     margin: 0;
@@ -21,7 +21,7 @@ html {
 
 .outline {
     @include display_row {
-        font-size: 12rem;
+        font-size: 10rem;
         color: #dbb95a;
         position: absolute;
     }
@@ -34,11 +34,11 @@ html {
         }
 
         &:hover>.ON {
-            left: 160px;
+            left: 140px;
         }
 
         &:hover>.RE {
-            right: 120px;
+            right: 100px;
         }
     }
 
@@ -47,10 +47,11 @@ html {
     }
 }
 
-@keyframes show_start{
+@keyframes show_start {
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
@@ -81,6 +82,7 @@ html {
     opacity: 0;
     transition: all 0.5s ease 0.1s;
     z-index: -1;
+    font-size: 1rem;
 }
 
 .up {
@@ -98,4 +100,31 @@ html {
     padding-top: 10px;
     margin-bottom: 10px;
     border-bottom: 1px solid #dbb95a;
+}
+
+// 行動版
+
+@media screen and (max-width:764px) {
+    .outline {
+        font-size: 4.5rem;
+
+        a {
+            &:hover>.ON {
+                left: 65px;
+            }
+
+            &:hover>.RE {
+                right: 45px;
+            }
+        }
+
+    }
+
+    .motto {
+        font-size: 0.5rem;
+    }
+
+    .middleline {
+        width: 90px;
+    }
 }

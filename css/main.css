@@ -75,6 +75,34 @@
   text-decoration: none;
 }
 
+.more-news a {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  color: #949494;
+  position: relative;
+}
+.more-news a i {
+  transition: all 0.5s ease 0s;
+  transform: translateX(0%);
+}
+.more-news a::after {
+  content: "更多消息";
+  transform: translate(0%, -14%);
+  transition: all 0.5s ease 0s;
+  opacity: 0;
+}
+.more-news a:hover i {
+  transform: translateX(400%);
+}
+.more-news a:hover::after {
+  transform: translate(-50%, -14%);
+  opacity: 1;
+}
+
 .news-item-body {
   border-width: 2px;
   border-color: #dbb95a;

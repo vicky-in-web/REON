@@ -35,7 +35,10 @@ require_once("php_lib.php");
 
 <body>
     <!-- Narbar -->
-    <?php require_once("newnavbar.php") ?>
+    <?php
+     require_once("newnavbar.php")
+     ?>
+    <?php require_once("navbar_mobile.php") ?>
 
     <!-- 首頁輪播 -->
     <section id="top_carousel">
@@ -150,6 +153,7 @@ require_once("php_lib.php");
     
     <?php require_once("footer.php") ?>
     <?php require_once("jsfile.php") ?>
+    
 </body>
 
 </html>
