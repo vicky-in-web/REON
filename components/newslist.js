@@ -5,8 +5,7 @@ export default {
         newsItem
     },
     template: `
-    <div class="row">
-    <div class="col-1"></div>
+    <div class="news-list">
         <newsItem 
         v-for="news in news"
         :href="news.href"
@@ -14,12 +13,6 @@ export default {
         :content="news.content"
         >
         </newsItem>
-        <div class="card col-1 more-news">
-            <a href="#">
-            <h3><i class="fa-solid fa-chevron-right"></i></h3>
-            </a>
-        </div>
-        <div class="col-1"></div>
     </div>
     `,
     data() {

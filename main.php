@@ -36,9 +36,8 @@ require_once("php_lib.php");
 <body>
     <!-- Narbar -->
     <?php
-     require_once("newnavbar.php")
-     ?>
-    <?php require_once("navbar_mobile.php") ?>
+    require_once("newnavbar.php")
+    ?>
 
     <!-- 首頁輪播 -->
     <section id="top_carousel">
@@ -78,36 +77,41 @@ require_once("php_lib.php");
         </div>
     </section>
     <!-- 特色服務 -->
-    <section id="service" class="d-flex justify-content-center align-items-center">
-        <div class="container">
-            <div class="row text-center d-flex justify-content-center align-items-center">
-                <div class="col-sm-1 service-item">
-                    <i class="fa-solid fa-stethoscope fa-2xl"></i>
-                </div>
-                <div class="col-sm-2 text-start">
-                    專業眼科醫師推薦
-                </div>
-                <div class="col-sm-1 service-item">
-                    <i class="fa-solid fa-headset fa-2xl"></i>
-                </div>
-                <div class="col-sm-2 text-start">
-                    真人線上客服<br>瞭解您所有疑慮
-                </div>
-                <div class="col-sm-1 service-item">
-                    <i class="fa-solid fa-list-check fa-2xl"></i>
-                </div>
-                <div class="col-sm-2 text-start">
-                    從檢驗到製作<br>每道工序層層把關
-                </div>
-                <div class="col-sm-1 service-item">
-                    <i class="fa-solid fa-handshake-simple fa-2xl"></i>
-                </div>
-                <div class="col-sm-2 text-start">
-                    重視溝通<br>全面了解您的需求
-                </div>
-            </div>
+    <section id="service">
+        <div class="service-item">
+            <i class="fa-solid fa-stethoscope fa-2xl"></i>
+            <div class="service-content">專業眼科醫師推薦</div>
         </div>
-
+        <div class="service-item">
+        <i class="fa-solid fa-headset fa-2xl"></i>
+            <div class="service-content">真人線上客服<br>瞭解您所有疑慮</div>
+        </div>
+        <div class="service-item">
+        <i class="fa-solid fa-list-check fa-2xl"></i>
+            <div class="service-content">從檢驗到製作<br>每道工序層層把關</div>
+        </div>
+        <div class="service-item">
+        <i class="fa-solid fa-handshake-simple fa-2xl"></i>
+            <div class="service-content">重視溝通<br>全面了解您的需求</div>
+        </div>
+        <!-- <div class="col-sm-1 service-item">
+            
+        </div>
+        <div class="col-sm-2 text-start">
+            
+        </div>
+        <div class="col-sm-1 service-item">
+            
+        </div>
+        <div class="col-sm-2 text-start">
+            
+        </div>
+        <div class="col-sm-1 service-item">
+            
+        </div>
+        <div class="col-sm-2 text-start">
+            
+        </div> -->
     </section>
     <!-- 最新消息 -->
     <section id="thenews" class="d-flex justify-content-center align-items-center">
@@ -122,10 +126,10 @@ require_once("php_lib.php");
     <section id="suggest">
         <div class="container suggestion-size">
             <div class="row">
-                <div class="little-title">當月精選</div>
+                <div class="little-title">REON明星商品</div>
             </div>
             <div class="row">
-                <!-- 建立產品列表自動帶入資料庫 -->
+                <!-- 產品列表帶資料庫 -->
                 <?php
 
                 $queryStar = "SELECT * FROM reonstar, product, product_img WHERE product.p_open=1 AND product_img.sort=1 AND product.p_id = product_img.p_id AND product_img.p_id = reonstar.p_id ORDER BY reonstar.star_sort DESC";
@@ -133,14 +137,18 @@ require_once("php_lib.php");
                 while ($starList_Row = $starList->fetch()) {
                 ?>
 
-                    <div class="col-md-3">
+                    <div class="col-md-3 col-sm-6 col-6">
                         <a href="good.php?p_id=<?php echo $starList_Row['p_id'] ?>">
                             <div class="product-item">
                                 <div class="product-card-img"><img src="./images/<?php echo $starList_Row['img_file'];   ?>" alt="" class="p-img"></div>
                                 <div class="product-card-content">
-                                    <?php echo $starList_Row['p_name']; ?><br>$
+                                    <?php echo $starList_Row['p_name']; ?>
+                                </div>
+                                <div class="product-price">
+                                    $
                                     <?php echo $starList_Row['p_price']; ?>
                                 </div>
+
                             </div>
                         </a>
                     </div>
@@ -150,10 +158,10 @@ require_once("php_lib.php");
             </div>
         </div>
     </section>
-    
+
     <?php require_once("footer.php") ?>
     <?php require_once("jsfile.php") ?>
-    
+
 </body>
 
 </html>

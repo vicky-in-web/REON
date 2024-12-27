@@ -128,3 +128,9 @@ $footer_color:#dbb95a;
     align-items: center;
     @content;
 }
+@mixin cartlist-align{
+    display: flex;
+    height: auto;
+    align-items: center;
+    @content
+}

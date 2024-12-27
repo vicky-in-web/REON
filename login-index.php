@@ -28,25 +28,28 @@ if (!isset($_SESSION['login'])) {
 
 <body>
     <?php require_once("newnavbar.php") ?>
-    <div class="page-title">
-        <div class="location">
-            <div class="location_item">親愛的會員，歡迎回來：</div>
+    <div class="login-index-outline">
+        <div class="page-title">
+            <div class="location">
+                <div class="location_item">親愛的會員，歡迎回來：</div>
+            </div>
+            <div class="btn btn-reon-logout"><a href="logout.php">登出</a></div>
         </div>
-        <div class="btn btn-reon-logout"><a href="logout.php">登出</a></div>
-    </div>
-    <div class="login-index-container">
-        <a href="member_profile.php" class="login-item">
-            會員資料
-        </a>
-        <a href="order_list.php" class="login-item">
-            歷史訂單
-        </a>
-        <a href="wish_list.php" class="login-item">
-            收藏清單
-        </a>
-        <a href="special_offer.php" class="login-item">
-            專屬優惠
-        </a>
+        <div class="login-index-content">
+            <a href="member_profile.php" class="login-item">
+                會員資料
+            </a>
+            <a href="order_list.php" class="login-item">
+                歷史訂單
+            </a>
+            <a href="wish_list.php" class="login-item">
+                收藏清單
+            </a>
+            <a href="special_offer.php" class="login-item">
+                專屬優惠
+            </a>
+        </div>
+
     </div>
 
 

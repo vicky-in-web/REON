@@ -40,7 +40,7 @@ if (isset($_SESSION['login'])) {
                 <button type="submit" class="btn-login">登 入</button>
                 <br>
                 <div class="forget"><a href="#">忘記密碼</a></div>
-                <div class="forget"><a href="register.php">還不是會員</a></div>
+                <div class="forget"><a href="register_nooption.php">還不是會員</a></div>
             </form>
         </div>
     </div>
@@ -76,14 +76,7 @@ if (isset($_SESSION['login'])) {
                 });
             });
         });
-        const gotopspace = document.getElementById('gotopspace');
-        window.onscroll = function() {
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                gotopspace.classList.add('visible');
-            } else {
-                gotopspace.classList.remove('visible');
-            }
-        };
+
     </script>
 </body>
 

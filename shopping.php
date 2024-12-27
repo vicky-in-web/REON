@@ -15,51 +15,21 @@ require_once("php_lib.php");
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php require_once("headfile.php") ?>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: system-ui, -apple-system, sans-serif;
-            background: #fff;
-        }
-    </style>
 </head>
 
 <body>
     <?php require_once("newnavbar.php") ?>
 
     <section id="shopping_content">
-        <div class="container-fluid">
-            <div class="row">
-                <!-- sidebar -->
-                <?php require_once("sidebar.php") ?>
+            <!-- sidebar -->
+            <?php require_once("sidebar.php") ?>
 
-                <!-- product list -->
-                <?php require_once("product_list.php") ?>
-
-            </div>
-        </div>
+            <!-- product list -->
+            <?php require_once("product_list.php") ?>
     </section>
 
-
-    <?php require_once("gotop.php") ?>
     <?php require_once("footer.php") ?>
     <?php require_once("jsfile.php") ?>
-
-    <script>
-        const gotopspace = document.getElementById('gotopspace');
-        window.onscroll = function() {
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                gotopspace.classList.add('visible');
-            } else {
-                gotopspace.classList.remove('visible');
-            }
-        };
-    </script>
 
 </body>
 

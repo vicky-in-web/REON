@@ -92,15 +92,33 @@ if (isset($_GET['p_id'])) {
                     $level1Open = '<li class="breadcrumb-item"><a href="shopping.php?classid=' . $data['classid'] . '">' . $level1Cname . '</a></li>';
                 }
             }
+        } else {
+            $SQLstring = sprintf("SELECT * FROM class WHERE level=2 and classid=%d", $product['classid']);
+            $classid_rs = $link->query($SQLstring);
+            if ($data = $classid_rs->fetch()) {
+                $level2Cname = $data['cname'];
+                $level2Uplink = $data['uplink'];
+                $level2Open = '<li class="breadcrumb-item"><a href="shopping.php?classid=' . $data['classid'] . '">' . $level2Cname . '</a></li>';
+
+                // 向上查詢第一層
+                $SQLstring = sprintf("SELECT * FROM class WHERE level=1 and classid=%d", $level2Uplink);
+                $classid_rs = $link->query($SQLstring);
+                if ($data = $classid_rs->fetch()) {
+                    $level1Cname = $data['cname'];
+                    $level1Open = '<li class="breadcrumb-item"><a href="shopping.php?classid=' . $data['classid'] . '">' . $level1Cname . '</a></li>';
+                }
+            }
         }
     }
 }
 ?>
 
 <!-- 目前位置 -->
-<nav id="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="main.php" style="text-decoration: none;color:#000;">首頁</a></li>
+<nav aria-label="breadcrumb" id="breadcrumb">
+    <ol class="breadcrumb bread">
         <?php echo $level1Open . $level2Open . $level3Open . $level4Open; ?>
+    </ol>
+    <ol class="breadcrumb bread-m">
+        <?php echo $level1Open . $level2Open . $level3Open; ?>
     </ol>
 </nav>

@@ -92,7 +92,15 @@
 }
 
 /* login-index */
-.login-index-container {
+.login-index-outline {
+  padding: 1rem 0;
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  align-items: center;
+}
+
+.login-index-content {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -180,12 +188,24 @@
   color: #fff;
 }
 
+.login-item-content {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 85%;
+  max-width: 1250px;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 20px;
+}
+
 .login-side {
+  width: 10%;
+  min-width: 80px;
   display: flex;
   flex-flow: column wrap;
-  gap: 25px;
-  margin: 20px;
+  gap: 20rem;
   font-weight: bolder;
+  justify-content: space-between;
 }
 .login-side .login-side-item {
   width: 100%;
@@ -259,4 +279,15 @@
 .login-side .login-side-item:hover::after, .login-side .login-side-item.activenow::after {
   transform: translate(-50%, -30%);
   color: gray;
+}
+.login-side .side-up {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 900px) {
+  .login-side {
+    display: none;
+  }
 }/*# sourceMappingURL=login-out.css.map */

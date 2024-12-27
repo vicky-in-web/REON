@@ -1,4 +1,4 @@
-<div class="col-2" id="sidebar">
+<div id="sidebar">
     <div id="sidebar_background">
         <a href="shopping.php">
             <div class="sidebar-all">全部商品</div>

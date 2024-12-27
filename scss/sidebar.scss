@@ -5,8 +5,7 @@
     width: 100%;
     background-color: #eee;
     color: #333;
-    border-radius: 15px;
-    margin: 20px 0px 20px 20px;
+    border-radius: 5px;
     padding: 5% 5% 40% 5%;
 
     .sidebar-all {
@@ -71,5 +70,18 @@
             }
 
         }
+    }
+}
+
+#sidebar{
+    display: block;
+    width: 12%;
+    min-width: 180px;
+    max-width: 210px;
+}
+
+@media screen and (max-width:900px) {
+    #sidebar{
+        display: none;
     }
 }

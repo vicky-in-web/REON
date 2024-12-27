@@ -6,6 +6,15 @@ require_once('Connections/dbset.php');
 (!isset($_SESSION)) ? session_start() : "";
 
 require_once("php_lib.php");
+if (isset($_GET['sPath'])) {
+    $sPath = $_GET['sPath'] . ".php";
+} else {
+    $sPath = "login.php";
+}
+// 確認有無登入
+if (!isset($_SESSION['login'])) {
+    header(sprintf("location:%s", $sPath));
+}
 ?>
 
 <!DOCTYPE html>
@@ -20,16 +29,11 @@ require_once("php_lib.php");
 <body>
     <?php require_once("newnavbar.php") ?>
 
-    <section id="shopping_content">
-        <div class="container-fluid">
-            <div class="row">
-                <?php require_once("cart_content.php") ?>
-            </div>
-        </div>
+    <section id="cart_content">
+        <?php require_once("cart_content_noinfo.php") ?>
     </section>
 
     <?php require_once("footer.php") ?>
-    <?php require_once("product_count.php") ?>
     <?php require_once("jsfile.php") ?>
 
     <script>
@@ -45,7 +49,7 @@ require_once("php_lib.php");
         }
 
         // 變更數量
-        $("input").change(function() {
+        $(".cart-list input").change(function() {
             var qty = $(this).val();
             const cartid = $(this).attr("cartid");
             if (qty <= 0 || qty >= 50) {
@@ -73,6 +77,30 @@ require_once("php_lib.php");
             })
         })
 
+        $('#btn04').click(function() {
+            let msg = "系統將進行結帳，請確認金額與收件人是否正確";
+            if (!confirm(msg)) return false;
+            var fullAddress=$("#fullAddress").text();
+            $.ajax({
+                url: 'addorder.php',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    addressid: fullAddress,
+                },
+                success: function(data) {
+                    if (data.c == true) {
+                        alert(data.m);
+                        window.location.href = "index.php";
+                    } else {
+                        alert("Database reponse error：" + data.m);
+                    }
+                },
+                error: function(data) {
+                    alert("ajax request error");
+                }
+            });
+        });
     </script>
 </body>
 

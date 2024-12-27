@@ -1,7 +1,7 @@
 export default {
     template: `
-    <div class="col-3 news-item">
-        <a :href="href" style="display: block; text-decoration: none;">
+    <div class="news-item">
+        <a :href="href" style="display: block;">
             <div>
                 <img :src="src" class="news-item-img">
             </div>

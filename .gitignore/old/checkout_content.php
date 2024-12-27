@@ -34,6 +34,13 @@ if ($addbook_rs && $addbook_rs->rowCount() != 0) {
         </div>
         <div><button class="btn btn-reon-b"><i class="fa-solid fa-rotate-left"></i><a href="cart.php"> 返回上一步</a></button></div>
     </div>
+
+
+
+
+
+
+
     <div class="container" style="display:flex; margin-left:2%;">
         <div class="deliver-info col">
             <div style="display: flex; justify-content:space-between;height:fit-content;margin-bottom:20px;">
@@ -54,6 +61,14 @@ if ($addbook_rs && $addbook_rs->rowCount() != 0) {
             <p>配送地址：<?php echo $fullAddress; ?></p>
         </div>
     </div>
+
+
+
+
+
+
+
+    
     <div style="display: flex;justify-content:center;margin:50px;">
         <button class="btn btn-reon-b-order"><a href="shopping.php">繼續選購</a></button>
         <button class="btn btn-reon-nextstep" type="button" id="btn04" name="btn04"><a href="#">確認下單</a></button>

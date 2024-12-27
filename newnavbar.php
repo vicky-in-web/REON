@@ -4,9 +4,9 @@
         <a href="main.php">
             <img src="images/REON_LOGO-2.png" title="REON里光眼鏡" class="logo-pic">
         </a>
-
         <!-- 選單欄 -->
         <ul class="nav-menu-new">
+        <li class="nav-item-new"><a href="shopping.php">全部商品</a></li>
             <?php
             // 列出產品第一層
             $SQLstring = "SELECT * FROM class WHERE level=1 ORDER BY sort";
@@ -145,4 +145,116 @@
     </div>
 
 
+</section>
+
+<!-- 行動版 -->
+<section class="navbar-wrapper-new-m">
+    <nav class="navbar-new-m">
+        <a href="main.php">
+            <img src="images/REON_LOGO-2.png" title="REON里光眼鏡" class="logo-pic">
+        </a>
+        <div>
+            <?php
+            if (!isset($_SESSION['login'])) {
+            ?>
+                <a href="login.php">
+                <?php
+            } else {
+                ?>
+                    <a href="login-index.php">
+                    <?php
+                }
+                    ?><i class="fa-regular fa-circle-user"></i></a>
+                    <a href="wish_list.php"><i class="fa-regular fa-heart"></i></a>
+                    <a href="./cart.php"><i class="fa-solid fa-cart-shopping">
+                            <span class="position-absolute translate-middle badge rounded-pill text-bg-warning">
+                                <?php
+                                $stmt = $link->prepare("SELECT SUM(qty) AS total_quantity FROM cart WHERE orderid IS NULL AND ip = :ip");
+                                $stmt->bindParam(':ip', $_SERVER['REMOTE_ADDR'], PDO::PARAM_STR);
+                                $stmt->execute();
+                                $total_quantity = $stmt->fetchColumn();
+                                ?>
+                                <?php
+                                echo htmlspecialchars($total_quantity, ENT_QUOTES, 'UTF-8');
+                                ?></span>
+                        </i></a>
+                    <i class="fa-solid fa-bars fa-2xl" style="color: #949494;margin-left:1rem; cursor:pointer;"></i>
+        </div>
+    </nav>
+
+    <div class="side-menu">
+        <div class="side-menu-content">
+            <ul class="side-menu-1">
+                <li class="side-item-1">
+                    <div class="item-title">
+                        <a href="shopping.php">全部商品</a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="side-menu-1">
+                <li class="side-item-1">
+                    <div class="item-title">
+                        <a href="shopping_reonstar.php">REON明星商品</a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="side-menu-1">
+                <?php
+                // 列出產品第一層
+                $SQLstring = "SELECT * FROM class WHERE level=1 ORDER BY sort";
+                $class01 = $link->query($SQLstring);
+                $i = 1; //控制編號順序
+                ?>
+                <?php
+                while ($class01_Rows = $class01->fetch()) {
+                ?>
+                    <li class="side-item-1">
+                        <div class="item-title"><a href="shopping.php?classid=<?php echo $class01_Rows['classid']; ?>">
+                                <?php echo $class01_Rows['cname'] ?>
+                            </a>
+                            <i class="fa-solid fa-chevron-down fa-sm icon1"></i>
+                        </div>
+                        <ul class="side-menu-2">
+                            <?php
+                            // 列出產品第二層
+                            $SQLstring = sprintf("SELECT * FROM class WHERE level=2 AND uplink=%d ORDER BY sort", $class01_Rows['classid']);
+                            $class02 = $link->query($SQLstring);
+                            while ($class02_Rows = $class02->fetch()) {
+                                $SQLstring_check = sprintf("SELECT COUNT(*) as count FROM class WHERE level=3 AND uplink=%d", $class02_Rows['classid']);
+                                $class03_check = $link->query($SQLstring_check);
+                                $has_third_level = ($class03_check->fetch()['count'] > 0);
+                            ?>
+                                <li class="side-item-2">
+                                    <div class="item-title"><a href="shopping.php?classid=<?php echo $class02_Rows['classid']; ?>"><?php echo $class02_Rows['cname'] ?> </a><?php if ($has_third_level) { ?>
+                                            <i class="fa-solid fa-chevron-down fa-sm icon2"></i>
+                                        <?php } ?>
+                                    </div>
+                                    <ul class="side-menu-3">
+                                        <?php
+                                        // 列出產品第三層
+                                        $SQLstring = sprintf("SELECT * FROM class WHERE level=3 AND uplink=%d ORDER BY sort", $class02_Rows['classid']);
+                                        $class03 = $link->query($SQLstring);
+                                        while ($class03_Rows = $class03->fetch()) {
+                                        ?>
+                                            <li class="side-item-3"><a href="shopping.php?classid=<?php echo $class03_Rows['classid']; ?>"><?php echo $class03_Rows['cname'] ?></a></li>
+                                        <?php } ?>
+                                    </ul>
+                                </li>
+                            <?php } ?>
+                        </ul>
+                    </li>
+                <?php
+                    $i++;
+                }
+                ?>
+            </ul>
+        </div>
+        <form action="shopping.php" method="get" id="search">
+            <div class="input-group input-group-sm mb-3" style="padding-top: 18px;">
+                <input type="search" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="button-addon2" name="search_name" id="search_name" value="<?php echo (isset($_GET['search_name'])) ? $_GET['search_name'] : ''; ?>" required>
+                <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </form>
+        <br>
+    </div>
 </section>
